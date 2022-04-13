@@ -4,6 +4,7 @@ services:
     working_dir: '/var/www'
     volumes:
       - './:/var/www:cached'
+      #  - './:/var/www'
     env_file:
       - ./.env
     labels:
