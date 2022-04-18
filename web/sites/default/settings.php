@@ -249,6 +249,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
+$settings['hash_salt'] = 'cJW5REskdddBTs7pAEBYDDmw5JTvsryeLL7r3VKaynb13EENHYpVovsCGCWWfmK7BuRa-c6OvQ';
 
 /**
  * Deployment identifier.
@@ -764,30 +765,18 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-$databases['default']['default'] = array(
-  'database' => getenv('MYSQL_DB_NAME'),
-  'username' => getenv('MYSQL_USER'),
-  'password' => getenv('MYSQL_PASS'),
-  'prefix' => '',
-  'host' => getenv('MYSQL_HOST'),
-  'port' => getenv('MYSQL_PORT'),
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-$settings['hash_salt'] = getenv('HASH_SALT');
-$settings['config_sync_directory'] = '../config';
-$settings['trusted_host_patterns'][] = getenv('PROJECT_BASE_URL');
-
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}$databases['default']['default'] = array (
+#
+# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+#   include $app_root . '/' . $site_path . '/settings.local.php';
+# }
+$databases['default']['default'] = array (
   'database' => 'test',
   'username' => 'user',
-  'password' => 'password',
+  'password' => 'pass',
   'prefix' => '',
   'host' => 'database',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
-$settings['hash_salt'] = 'z3E--oNvFSOTLZOS_VLA350WbRk0_8lsvFnIqFWjjMW4pa52UlemCsbSzx8VG_Ak-bauMANtNQ';
+$settings['config_sync_directory'] = '../config';

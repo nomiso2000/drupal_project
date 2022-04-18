@@ -1,6 +1,6 @@
 FROM php:8.1-apache
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends git zlib1g-dev libzip-dev zip unzip libpng-dev
+  && apt-get install -y --no-install-recommends git zlib1g-dev libzip-dev zip unzip libpng-dev default-mysql-client
 RUN docker-php-ext-install pdo_mysql gd opcache
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -15,7 +15,10 @@ RUN pecl install xdebug \
           echo "xdebug.client_host=host.docker.internal"; \
           echo "xdebug.client_port=9000"; \
           echo "xdebug.idekey=vscode"; \
-      } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
+          echo "xdebug.log_level=0u"; \
+      } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; 
+
+RUN echo "memory_limit=256M" > /usr/local/etc/php/conf.d/docker-php-ext-custom.ini;
 
 COPY vhost.conf /etc/apache2/sites-enabled/000-default.conf
 
