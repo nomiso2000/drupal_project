@@ -780,3 +780,4 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['config_sync_directory'] = '../config';
+$settings['skip_permissions_hardening'] = TRUE;

@@ -1,5 +1,6 @@
 .PHONY: up down stop start install
 include .env
+default: install
 up:
 	docker-compose up -d
 down: 
@@ -9,8 +10,8 @@ stop:
 start:
 	docker-compose start
 install: up
-	sleep 5
-	docker-compose exec php bash -c "drush site:install --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) -y"
+	docker-compose exec php composer install --no-interaction
+	docker-compose exec php bash -c "drush site:install --existing-config  --db-url=mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/$(MYSQL_DB_NAME) -y"
 	docker-compose exec php bash -c "drush user:create --mail=test@example.com --password=test test"
 	docker-compose exec php bash -c "drush user:role:add administrator test"
 	@mkdir -p "drush"
@@ -19,3 +20,5 @@ install: up
 
 cli: 
 	docker-compose exec php bash
+test:
+	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"
