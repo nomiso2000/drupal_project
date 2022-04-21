@@ -1,14 +1,12 @@
-uuid: 35af6fe3-e86a-4d71-93d9-439cd92995a6
+uuid: 4e7aa125-2da9-4e0a-b45f-eaf813c02eb5
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-_core:
-  default_config_hash: WpOE_bs8Bs_HY2ns7n2r__de-xno0-Bxkqep5-MsHAs
-id: node.field_tags
-field_name: field_tags
+id: node.field_experiance_technology_
+field_name: field_experiance_technology_
 entity_type: node
 type: entity_reference
 settings:

@@ -1,0 +1,23 @@
+uuid: f794e19a-2151-447f-ad91-59cf290cbd3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_commercial_experience
+    - node.type.employee
+id: node.employee.field_commercial_experience
+field_name: field_commercial_experience
+entity_type: node
+bundle: employee
+label: 'Commercial experience'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'I have commercial experiance'
+  off_label: 'I dont have'
+field_type: boolean

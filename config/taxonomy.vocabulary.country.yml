@@ -1,0 +1,8 @@
+uuid: ab0d2767-dbae-4c4a-8746-1bfdbf207ccd
+langcode: en
+status: true
+dependencies: {  }
+name: Country
+vid: country
+description: 'Where u live'
+weight: 0
