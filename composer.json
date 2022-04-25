@@ -12,10 +12,16 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+    }, 
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
     }
   ],
   "require": {
     "composer/installers": "^1.9",
+    "drupal/bootstrap5": "^1.0",
+    "drupal/context": "^4.1",
     "drupal/core-composer-scaffold": "^9.3",
     "drupal/core-project-message": "^9.3",
     "drupal/core-recommended": "^9.3",
@@ -45,7 +51,9 @@
         "type:drupal-core"
       ],
       "web/libraries/{$name}": [
-        "type:drupal-library"
+        "type:drupal-library", 
+        "type:bower-asset",
+        "type:npm-asset"
       ],
       "web/modules/contrib/{$name}": [
         "type:drupal-module"

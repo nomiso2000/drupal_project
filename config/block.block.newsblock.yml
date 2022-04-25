@@ -1,0 +1,30 @@
+uuid: b57b6f15-faa9-4e4f-8b89-b11e1b7c1a62
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e51ffc37-8337-4238-8162-3fa5fed937fe'
+  module:
+    - block_content
+    - system
+  theme:
+    - bartik
+id: newsblock
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:e51ffc37-8337-4238-8162-3fa5fed937fe'
+settings:
+  id: 'block_content:e51ffc37-8337-4238-8162-3fa5fed937fe'
+  label: 'News block'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/news/*'
