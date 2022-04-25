@@ -11,6 +11,8 @@ module:
   comment: 0
   config: 0
   contact: 0
+  context: 0
+  context_ui: 0
   contextual: 0
   datetime: 0
   dblog: 0
@@ -47,4 +49,7 @@ module:
 theme:
   bartik: 0
   seven: 0
+  stable: 0
+  classy: 0
+  bootstrap5: 0
 profile: minimal
