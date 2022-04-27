@@ -1,9 +1,8 @@
 FROM php:8.1-apache
 RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update \
   && apt-get install -y --no-install-recommends git zlib1g-dev libzip-dev zip unzip libpng-dev default-mysql-client libjpeg-dev libfreetype6-dev libpq-dev libjpeg62-turbo-dev
-RUN docker-php-ext-install pdo_mysql opcache
-RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp \
-  && docker-php-ext-install gd
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-install pdo_mysql gd opcache
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN a2enmod rewrite

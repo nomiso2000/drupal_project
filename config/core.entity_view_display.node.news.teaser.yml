@@ -1,4 +1,4 @@
-uuid: 83d82ba8-b8dc-4ac4-b126-3f690760711d
+uuid: cb06a0d7-254e-4e6f-82fb-bbddf428f872
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.news.body
     - field.field.node.news.field_category
-    - field.field.node.news.field_date
+    - field.field.node.news.field_type
     - node.type.news
   module:
     - text
@@ -31,4 +31,4 @@ content:
     region: content
 hidden:
   field_category: true
-  field_date: true
+  field_type: true

@@ -1,21 +1,21 @@
-uuid: ae06395c-eea1-4790-a83a-37cad2fa49c1
+uuid: 23663180-3a3d-41e1-9cf3-8649607cf75e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_type
     - node.type.news
   module:
-    - datetime
-id: node.news.field_date
-field_name: field_date
+    - options
+id: node.news.field_type
+field_name: field_type
 entity_type: node
 bundle: news
-label: Date
+label: Type
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: list_string

@@ -1,0 +1,27 @@
+uuid: 2d3a5f9e-a085-4634-86e2-0c874f65b22f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_type
+field_name: field_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: World
+      label: World
+    -
+      value: Ukraine
+      label: Ukraine
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

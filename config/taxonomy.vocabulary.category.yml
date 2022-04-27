@@ -1,8 +1,8 @@
-uuid: 0e1d588a-0b31-46d9-b52d-8ebf56c5d3e5
+uuid: 0909f697-cfc5-454c-acb3-0c0cbde60f13
 langcode: en
 status: true
 dependencies: {  }
 name: Category
 vid: category
-description: ''
+description: 'news category'
 weight: 0
