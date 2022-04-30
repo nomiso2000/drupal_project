@@ -1,0 +1,24 @@
+uuid: b6cc9a6b-a168-4ebf-a5d5-b9cd0686fc10
+langcode: en
+status: true
+dependencies: {  }
+name: 'Anonymous editor'
+format: anonymous_editor
+weight: 0
+filters:
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang target> <em> <strong> <ul type> <ol start type=''1 A I''> <li> '
+      filter_html_help: true
+      filter_html_nofollow: false

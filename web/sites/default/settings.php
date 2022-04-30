@@ -503,7 +503,7 @@ $settings['update_free_access'] = FALSE;
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '../private' ;
 
 /**
  * Temporary file path:
@@ -781,3 +781,6 @@ $databases['default']['default'] = array (
 );
 $settings['config_sync_directory'] = '../config';
 $settings['skip_permissions_hardening'] = TRUE;
+$config['system.logging']['error_level'] = 'verbose';
+$config['system.perfomance']['css']['preprocess'] = FALSE;
+$config['system.perfomance']['js']['preprocess'] = FALSE;
