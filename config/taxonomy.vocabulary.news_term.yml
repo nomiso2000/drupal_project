@@ -1,0 +1,8 @@
+uuid: ecd79560-7dd7-4bd5-a0b9-3cb0ee9ea614
+langcode: en
+status: true
+dependencies: {  }
+name: 'News term'
+vid: news_term
+description: ''
+weight: 0

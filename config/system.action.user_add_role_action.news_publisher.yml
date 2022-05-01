@@ -1,0 +1,14 @@
+uuid: f6596dec-842b-4d68-8b04-15798da4aa99
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.news_publisher
+  module:
+    - user
+id: user_add_role_action.news_publisher
+label: 'Add the News publisher role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: news_publisher

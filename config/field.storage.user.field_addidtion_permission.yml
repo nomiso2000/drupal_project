@@ -1,0 +1,20 @@
+uuid: a8b60ac4-7937-4fbf-88dd-be484eb3955d
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_addidtion_permission
+field_name: field_addidtion_permission
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 653e30ad-3c96-4520-9a5f-8d2e0663e895
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - node
+    - permissions_by_term
+    - toolbar
+    - tour
+id: news_publisher
+label: 'News publisher'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access tour'
+  - 'create news content'
+  - 'delete own news content'
+  - 'edit own news content'
+  - 'show term permissions on node edit page'
