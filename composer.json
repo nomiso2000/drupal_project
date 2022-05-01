@@ -20,6 +20,7 @@
   ],
   "require": {
     "composer/installers": "^1.9",
+    "drupal/admin_toolbar": "^3.1",
     "drupal/better_exposed_filters": "^5.0",
     "drupal/bootstrap5": "^1.0",
     "drupal/context": "^4.1",
