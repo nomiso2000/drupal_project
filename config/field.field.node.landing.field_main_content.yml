@@ -1,0 +1,37 @@
+uuid: f8e5a5b9-b579-430b-88dd-bd244c356f70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_content
+    - node.type.landing
+    - paragraphs.paragraphs_type.product_list
+  module:
+    - entity_reference_revisions
+id: node.landing.field_main_content
+field_name: field_main_content
+entity_type: node
+bundle: landing
+label: 'main Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      product_list: product_list
+    negate: 0
+    target_bundles_drag_drop:
+      _product_item:
+        weight: 6
+        enabled: false
+      banner_with_image:
+        weight: 4
+        enabled: false
+      product_list:
+        weight: 5
+        enabled: true
+field_type: entity_reference_revisions

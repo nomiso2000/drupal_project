@@ -1,0 +1,22 @@
+uuid: bed22f82-fe25-4692-849f-6faf46e1e278
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: '1212'
+label: Landing
+type: 'canonical_entities:node'
+pattern: '/landing/[node:nid]'
+selection_criteria:
+  524536ae-836e-49a5-a2bb-7ba6dfeb84a2:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 524536ae-836e-49a5-a2bb-7ba6dfeb84a2
+    context_mapping:
+      node: node
+    bundles:
+      landing: landing
+selection_logic: and
+weight: -5
+relationships: {  }
