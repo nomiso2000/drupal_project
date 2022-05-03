@@ -1,0 +1,45 @@
+uuid: 2d676aa6-0b4c-42c6-a244-d5240d5da025
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.participant
+  module:
+    - context
+    - webform
+  theme:
+    - bartik
+id: webform_2
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  label_display: visible
+  provider: webform
+  webform_id: participant
+  default_data: ''
+  redirect: false
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''
