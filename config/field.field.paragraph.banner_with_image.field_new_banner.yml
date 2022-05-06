@@ -1,0 +1,29 @@
+uuid: 6dc593e6-4aed-40bf-85f6-7bec0d707b0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_new_banner
+    - media.type.banner
+    - paragraphs.paragraphs_type.banner_with_image
+id: paragraph.banner_with_image.field_new_banner
+field_name: field_new_banner
+entity_type: paragraph
+bundle: banner_with_image
+label: new_banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      banner: banner
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

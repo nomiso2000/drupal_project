@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.product_list.field_contain_middle_para
     - field.field.paragraph.product_list.field_paragraph_title
-    - field.field.paragraph.product_list.field_product_items
     - paragraphs.paragraphs_type.product_list
   module:
     - paragraphs
@@ -13,15 +13,7 @@ targetEntityType: paragraph
 bundle: product_list
 mode: default
 content:
-  field_paragraph_title:
-    type: string_textfield
-    weight: 1
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_product_items:
+  field_contain_middle_para:
     type: paragraphs
     weight: 2
     region: content
@@ -38,6 +30,14 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  field_paragraph_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

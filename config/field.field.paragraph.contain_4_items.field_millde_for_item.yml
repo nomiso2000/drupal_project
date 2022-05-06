@@ -1,20 +1,20 @@
-uuid: 5aaa07b2-5d69-4546-a241-9db0ca411ead
+uuid: 2615d5d7-1b8f-47ac-987f-7ba24946b68b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_product_items
+    - field.storage.paragraph.field_millde_for_item
     - paragraphs.paragraphs_type._product_item
-    - paragraphs.paragraphs_type.product_list
+    - paragraphs.paragraphs_type.contain_4_items
   module:
     - entity_reference_revisions
-id: paragraph.product_list.field_product_items
-field_name: field_product_items
+id: paragraph.contain_4_items.field_millde_for_item
+field_name: field_millde_for_item
 entity_type: paragraph
-bundle: product_list
-label: 'Product item'
+bundle: contain_4_items
+label: millde_for_item
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -26,12 +26,15 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       _product_item:
-        weight: 6
+        weight: 8
         enabled: true
       banner_with_image:
-        weight: 4
+        weight: 5
+        enabled: false
+      contain_4_items:
+        weight: 6
         enabled: false
       product_list:
-        weight: 5
+        weight: 7
         enabled: false
 field_type: entity_reference_revisions

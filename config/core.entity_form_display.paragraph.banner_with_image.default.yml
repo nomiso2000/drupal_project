@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.banner_with_image.field_image
     - field.field.paragraph.banner_with_image.field_link
+    - field.field.paragraph.banner_with_image.field_new_banner
     - field.field.paragraph.banner_with_image.field_paragraph_title
     - field.field.paragraph.banner_with_image.field_text
     - image.style.thumbnail
@@ -12,6 +13,7 @@ dependencies:
   module:
     - image
     - link
+    - media_library
     - text
 id: paragraph.banner_with_image.default
 targetEntityType: paragraph
@@ -33,6 +35,13 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_new_banner:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_paragraph_title:
     type: string_textfield

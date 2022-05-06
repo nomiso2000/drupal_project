@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.banner_with_image.field_image
     - field.field.paragraph.banner_with_image.field_link
+    - field.field.paragraph.banner_with_image.field_new_banner
     - field.field.paragraph.banner_with_image.field_paragraph_title
     - field.field.paragraph.banner_with_image.field_text
     - image.style.wide
@@ -65,6 +66,15 @@ content:
     third_party_settings: {  }
     weight: 3
     region: right
+  field_new_banner:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_paragraph_title:
     type: string
     label: hidden

@@ -8,9 +8,13 @@ dependencies:
     - node.type.news
     - node.type.page
     - taxonomy.vocabulary.tags
+    - workflows.workflow.editorial
   module:
     - comment
+    - content_moderation
     - contextual
+    - entity_reference_revisions
+    - field_ui
     - file
     - filter
     - node
@@ -19,6 +23,7 @@ dependencies:
     - taxonomy
     - toolbar
     - tour
+    - workflows
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
@@ -32,24 +37,41 @@ permissions:
   - 'access files overview'
   - 'access toolbar'
   - 'access tour'
+  - 'administer node display'
+  - 'administer node fields'
+  - 'administer node form display'
+  - 'administer nodes'
   - 'administer url aliases'
+  - 'administer workflows'
   - 'create article content'
   - 'create news content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'delete any article content'
   - 'delete article revisions'
+  - 'delete orphan revisions'
   - 'delete own article content'
   - 'delete own news content'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any article content'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own news content'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'revert article revisions'
+  - 'use editorial transition archive'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition moderation'
+  - 'use editorial transition publish'
+  - 'use editorial transition ready_to_publish'
   - 'use text format editor_format'
   - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view the administration theme'

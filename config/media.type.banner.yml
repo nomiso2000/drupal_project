@@ -1,0 +1,13 @@
+uuid: 5461c267-0849-4db2-b341-eb77abe0f297
+langcode: en
+status: true
+dependencies: {  }
+id: banner
+label: Banner
+description: 'Good for banner'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }
