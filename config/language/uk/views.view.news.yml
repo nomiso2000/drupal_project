@@ -1,0 +1,9 @@
+label: Новини
+display:
+  default:
+    display_options:
+      title: Новини
+  page_1:
+    display_options:
+      menu:
+        title: Новини
