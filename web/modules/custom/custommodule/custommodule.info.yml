@@ -1,0 +1,5 @@
+name: bda_CustomModule
+description: My first custom module
+core_version_requirement: ^9 || ^10
+type: module
+package: CustomModules
