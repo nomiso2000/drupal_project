@@ -29,9 +29,11 @@
     "drupal/core-recommended": "9.3.12",
     "drupal/default_content": "^2.0@alpha",
     "drupal/ds": "^3.13",
+    "drupal/metatag": "^1.19",
     "drupal/paragraphs": "^1.14",
     "drupal/pathauto": "^1.10",
     "drupal/permissions_by_term": "^3.1",
+    "drupal/simple_sitemap": "^4.1",
     "drupal/token": "^1.10",
     "drupal/webform": "^6.1",
     "drush/drush": "^11.0"
