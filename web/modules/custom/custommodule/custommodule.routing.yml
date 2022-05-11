@@ -1,0 +1,25 @@
+custommodule.first_module:
+  path: 'first-module'
+  defaults:
+   _controller: '\Drupal\custommodule\Controller\FirstModule::content'
+   _title: 'First Page'
+  requirements: 
+   _permission: 'access content'
+custommodule.private_page:
+  path: 'private-module'
+  defaults: 
+   _controller: '\Drupal\custommodule\Controller\FirstModule::privateContent'
+   _title: 'Private Page'
+  requirements: 
+   _permission: 'access premium pages'
+custommodule.display_node: 
+  path: '/display-node/{node}'
+  defaults: 
+   _controller: '\Drupal\custommodule\Controller\DisplayNode::content'
+   _title_callback: '\Drupal\custommodule\Controller\DisplayNode::getTitle'
+  requirements: 
+   _custom_access: '\Drupal\custommodule\Controller\DisplayNode::access'
+  options: 
+    parameters: 
+      node:
+        type: entity:node
