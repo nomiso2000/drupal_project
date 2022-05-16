@@ -1,0 +1,12 @@
+example_route_news:
+  path: '/news/latest'
+  defaults:
+    _controller: '\Drupal\beetroot_example\Controllers\Example::view'
+  requirements:
+    _permission: 'access beetroot example page homework'
+example_route_news_id:
+  path: '/news/latest/{id}'
+  defaults:
+    _controller: '\Drupal\beetroot_example\Controllers\Example::viewId'
+  requirements:
+    _permission: 'access beetroot example page homework'

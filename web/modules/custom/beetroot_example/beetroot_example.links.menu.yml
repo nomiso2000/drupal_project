@@ -1,0 +1,4 @@
+example_page_link:
+  title: 'Example'
+  route_name: 'example_route_news'
+  menu_name: main

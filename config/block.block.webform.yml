@@ -1,6 +1,6 @@
 uuid: bcd97d11-850b-4b66-8873-a8b6be9b5260
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - webform.webform.speaker

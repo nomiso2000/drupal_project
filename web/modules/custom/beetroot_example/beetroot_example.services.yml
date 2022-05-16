@@ -1,0 +1,4 @@
+services: 
+  beetroot_example.example_controller: 
+    class: '\Drupal\beetroot_example\Controllers\Example'
+    arguments: ['@database']

@@ -5,6 +5,7 @@ module:
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
   automated_cron: 0
+  beetroot_example: 0
   better_exposed_filters: 0
   big_pipe: 0
   block: 0
@@ -21,11 +22,13 @@ module:
   context_ui: 0
   contextual: 0
   ctools: 0
+  custommodule: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
+  ex81: 0
   field: 0
   field_ui: 0
   file: 0

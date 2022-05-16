@@ -1,0 +1,5 @@
+name: ex81
+description: Example of a simple custom form
+type: module
+package: Custom
+core_version_requirement: ^9 || ^10
