@@ -32,7 +32,7 @@ class NewsForm extends \Drupal\Core\Form\ConfigFormBase {
     $form['settings']['sorted'] = [
       '#type' => 'radios',
       '#title' => $this->t('News sorting'),
-      '#default_value' => 'created',
+      //      '#default_value' => 'created',
       '#options' => [
         'created' => $this->t('Sorted by created'),
         'changed' => $this->t('Sorted by update'),
