@@ -26,3 +26,22 @@ ex81.settings_form:
     _title: 'Simple custom Settings Form'
   requirements:
     _permission: 'administer site configuration'
+ex81.route_with_autocomplete:
+  path: '/ex81/autocomplete'
+  defaults:
+    _controller: 'Drupal\ex81\Controllers\ExampleController::autocomplete'
+  requirements:
+    _permission: 'access content'
+ex81.all_news:
+  path: '/news/all'
+  defaults:
+    _controller: '\Drupal\ex81\Controllers\News::view'
+  requirements:
+    _permission: 'access content'
+ex81.settings_news:
+  path: 'admin/news/all'
+  defaults:
+    _form: '\Drupal\ex81\Form\NewsForm'
+    _title: 'Sort News'
+  requirements:
+    _permission: 'administer site configuration'

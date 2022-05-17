@@ -11,3 +11,11 @@ ex81.settings:
     important_text:
       type: string
       label: 'Some text'
+ex81.settings_news:
+  type: config_object
+  label: 'News filter form'
+  mapping:
+    sorted:
+      type: string
+      label: 'Sorted'
+

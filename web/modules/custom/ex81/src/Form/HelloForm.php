@@ -53,7 +53,7 @@ class HelloForm extends FormBase {
       '#required' => TRUE,
       '#prefix' => $this->t('Some uniq title'),
       "#size" => 15,
-      '#default_value' => 'Default value',
+      //      '#default_value' => 'Default value',
       //      '#disabled' => TRUE,
       '#title_display' => 'after',
       '#wrapper_attributes' => [
@@ -63,6 +63,7 @@ class HelloForm extends FormBase {
         'class' => ['custom_class_for_input'],
         'id' => 'some_id_input',
       ],
+      '#autocomplete_route_name' => 'ex81.route_with_autocomplete',
     ];
     //    if ($form_state->has('text_len')) {
     //      $text_len = $form_state->get('text_len');
@@ -90,6 +91,39 @@ class HelloForm extends FormBase {
       '#title' => $this->t('Category'),
       '#options' => $cats,
     ];
+    // The #ajax attribute used in the temperature input element defines an ajax
+    // callback that will invoke the 'updateColor' method on this form object.
+    // Whenever the temperature element changes, it will invoke this callback
+    // and replace the contents of the 'color_wrapper' container with the
+    // results of this method call.
+    $form['temperature'] = [
+      '#title' => $this->t('Temperature'),
+      '#type' => 'select',
+      '#options' => range(0, 4),
+      '#empty_option' => $this->t('- Select a color temperature -'),
+      '#ajax' => [
+        // Could also use [get_class($this), 'updateColor'].
+        'callback' => '::updateColor',
+        'wrapper' => 'color-wrapper',
+      ],
+    ];
+
+    // Add a wrapper that can be replaced with new HTML by the ajax callback.
+    // This is given the ID that was passed to the ajax callback in the '#ajax'
+    // element above.
+    $form['color_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => ['id' => 'color-wrapper'],
+    ];
+    $temperature = $form_state->getValue('temperature');
+    if (!empty($temperature)) {
+      $form['color_wrapper']['color'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Color'),
+        '#options' => range(5, 10),
+      ];
+    }
+
 
     $form['actions'] = [
       '#type' => 'actions',
@@ -139,7 +173,6 @@ class HelloForm extends FormBase {
   }
 
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    xdebug_break();
     parent::validateForm($form, $form_state);
 
     $title = $form_state->getValue('title');
@@ -186,5 +219,13 @@ class HelloForm extends FormBase {
 
 
   }
+
+  /**
+   * Ajax callback for the color dropdown.
+   */
+  public function updateColor(array $form, FormStateInterface $form_state) {
+    return $form['color_wrapper'];
+  }
+
 
 }

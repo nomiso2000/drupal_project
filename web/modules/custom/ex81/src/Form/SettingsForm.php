@@ -20,26 +20,43 @@ class SettingsForm extends \Drupal\Core\Form\ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('ex81.settings');
     //    $this->configFactory()->getEditable('system.site')
-
+    $form['enabled'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable Exanple Form Functions'),
+      '#default_value' => $config->get('enabled'),
+    ];
     $form['settings'] = [
       '#type' => 'details',
       '#title' => $this->t('Form Example Settings'),
       '#open' => TRUE,
+      '#states' => [
+        //FORM CONDITION
+        //show this textfield only if the radio 'other' is selected above
+        'visible' => [
+          // Don't mistake :input for the type of field -- it's just a css selector.
+          // You can always use :input or any other css selector here, no matter
+          // whether your source is a select, radio or checkbox element.
+          ':input[name="enabled"]' => ['checked' => TRUE],
+        ],
+      ],
     ];
-    $form['settings']['enabled'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Enable Exanple Form Functions'),
-    ];
+    //    $form['settings']['enabled'] = [
+    //      '#type' => 'checkbox',
+    //      '#title' => $this->t('Enable Exanple Form Functions'),
+    //      '#default_value' => $config->get('enabled'),
+    //    ];
     $form['settings']['important_number'] = [
       '#type' => 'number',
       '#title' => $this->t('Some important number'),
       '#min' => 1,
       '#max' => 15,
       '#step' => 1,
+      '#default_value' => $config->get('important_number'),
     ];
     $form['settings']['important_text'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Some text'),
+      '#default_value' => $config->get('important_text'),
     ];
 
 
