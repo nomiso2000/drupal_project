@@ -1,0 +1,13 @@
+ex81.settings:
+  type: config_object
+  label: 'Form Example Settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    important_number:
+      type: integer
+      label: 'Some important number'
+    important_text:
+      type: string
+      label: 'Some text'
