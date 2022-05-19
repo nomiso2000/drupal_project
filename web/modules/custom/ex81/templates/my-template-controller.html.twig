@@ -1,0 +1,8 @@
+<h2>{{ test_vars }}</h2>
+{% if test_vars is not empty %}
+  <div>
+    {% for var in test_vars %}
+      <div>{{ var }}</div>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -2,6 +2,7 @@
 
 namespace Drupal\ex81\Controllers;
 
+use Drupal\Core\Render\RendererInterface;
 use Laminas\Diactoros\Response\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -9,8 +10,29 @@ class ExampleController extends \Drupal\Core\Controller\ControllerBase {
 
   public function view() {
     $config = \Drupal::config('ex81.settings');
+    //    return [
+    //      '#markup' => $config->get('important_text'),
+    //    ];
+
+    //    $renderer = \Drupal::service('renderer');
+    //    $el = [
+    //      '#theme' => 'my_template_controller',
+    //      '#test_var' => 'HELLO WORLDS',
+    //    ];
+    //    $renderer->render($el);
     return [
-      '#markup' => $config->get('important_text'),
+      '#theme' => 'my_template_controller',
+      '#test_vars' => [
+        [
+          '#theme' => 'my_template',
+          '#test_var' => 'HELLO WORLDS1',
+        ],
+        [
+          '#theme' => 'my_template',
+          '#test_var' => 'HELLO WORLDS2',
+        ],
+      ],
+
     ];
   }
 

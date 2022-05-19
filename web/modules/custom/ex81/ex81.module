@@ -1,0 +1,58 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+
+//function ex81_theme($existing, $type, $theme, $path) {
+//  return [
+//    'my_template' => [
+//      'variables' => ['test_var' => NULL],
+//    ],
+//  ];
+//}
+
+//function ex81_block_access(\Drupal\block\Entity\Block $block, $operation, \Drupal\Core\Session\AccountInterface $account) {
+//  // Example code that would prevent displaying the 'Powered by Drupal' block in
+//  // a region different than the footer.
+//  if ($operation == 'view') {
+//    return AccessResult::forbiddenIf($block->getRegion() != 'footer')
+//      ->addCacheableDependency($block);
+//  }
+//  // No opinion.
+//  return AccessResult::neutral();
+//}
+//
+
+function ex81_theme($existing, $type, $theme, $path) {
+  return [
+    'my_template_controller' => [
+      'variables' => ['test_vars' => NULL],
+    ],
+    'my_template' => [
+      'variables' => ['test_var' => NULL],
+    ],
+  ];
+}
+
+function ex81_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    $form['actions']['submit']['#value'] = t('Feedback');
+    //    $form['actions']['submit']['#submit'] = \Drupal::service('form_submitted')
+    //      ->redirectForm($form_state->setRedirect('<front>'));
+    $form['#submit'][] = '_login_page_redirect_user_login_form_submit';
+  }
+}
+
+function _login_page_redirect_user_login_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $current_user = \Drupal::currentUser()->getRoles();
+  if (in_array('content_editor', $current_user)) {
+    return $form_state->setRedirect('system.admin_content');
+  }
+  return $form_state->setRedirect('<front>');
+
+}
