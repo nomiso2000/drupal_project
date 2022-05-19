@@ -4,6 +4,7 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -54,5 +55,25 @@ function _login_page_redirect_user_login_form_submit($form, \Drupal\Core\Form\Fo
     return $form_state->setRedirect('system.admin_content');
   }
   return $form_state->setRedirect('<front>');
+
+}
+
+function ex81_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+
+  if ($entity->getEntityTypeId() == 'node' && $entity->getType() == 'news' && $entity->field_last_update_date->value == '') {
+    if (!$entity->isNew() && $entity->get('status')
+        ->getValue() != $entity->original->get('status')
+        ->getValue()) {
+      $entity->field_last_update_date->value = date('Y-m-d') . 'T' . date('h:i:s');
+    }
+  }
+}
+
+function ex81_entity_update(EntityInterface $entity) {
+  if ($entity->getType() == 'news') {
+    \Drupal::messenger()
+      ->addMessage('Published date was updated: ');
+  }
 
 }
