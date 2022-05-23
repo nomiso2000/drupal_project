@@ -34,13 +34,26 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 //}
 //
 
+//function ex81_theme($existing, $type, $theme, $path) {
+//  return [
+//    'my_template_controller' => [
+//      'variables' => ['test_vars' => NULL],
+//    ],
+//    'my_template' => [
+//      'variables' => ['test_var' => NULL],
+//    ],
+//  ];
+//}
+
 function ex81_theme($existing, $type, $theme, $path) {
   return [
-    'my_template_controller' => [
-      'variables' => ['test_vars' => NULL],
-    ],
-    'my_template' => [
-      'variables' => ['test_var' => NULL],
+    'theme_template' => [
+      'variables' =>
+        [
+          'title' => NULL,
+          'content' => NULL,
+          'link' => NULL,
+        ],
     ],
   ];
 }

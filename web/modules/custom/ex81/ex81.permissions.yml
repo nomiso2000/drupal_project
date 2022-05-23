@@ -1,3 +1,6 @@
 permission_for_moders:
   title: 'Permission for moder'
   description: 'Form moderation'
+view field published date:
+  title: 'Access From field Published Date'
+  description: 'Permission to view field published date'

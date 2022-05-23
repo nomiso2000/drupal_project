@@ -1,0 +1,41 @@
+uuid: 0b2ea3b1-cb4b-481d-bb17-ce725c243e49
+langcode: en
+status: false
+dependencies:
+  module:
+    - context
+    - custommodule
+  theme:
+    - custom_theme
+id: custom_theme_my_first_block
+theme: custom_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: custommodule_first_block_block
+settings:
+  id: custommodule_first_block_block
+  label: 'My first block'
+  label_display: visible
+  provider: custommodule
+  custommodule_first_block_settings: Mikle
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''

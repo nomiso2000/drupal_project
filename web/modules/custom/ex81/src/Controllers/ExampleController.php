@@ -20,20 +20,27 @@ class ExampleController extends \Drupal\Core\Controller\ControllerBase {
     //      '#test_var' => 'HELLO WORLDS',
     //    ];
     //    $renderer->render($el);
+    //    return [
+    //      '#theme' => 'my_template_controller',
+    //      '#test_vars' => [
+    //        [
+    //          '#theme' => 'my_template',
+    //          '#test_var' => 'HELLO WORLDS1',
+    //        ],
+    //        [
+    //          '#theme' => 'my_template',
+    //          '#test_var' => 'HELLO WORLDS2',
+    //        ],
+    //      ],
+    //
+    //    ];
     return [
-      '#theme' => 'my_template_controller',
-      '#test_vars' => [
-        [
-          '#theme' => 'my_template',
-          '#test_var' => 'HELLO WORLDS1',
-        ],
-        [
-          '#theme' => 'my_template',
-          '#test_var' => 'HELLO WORLDS2',
-        ],
-      ],
-
+      '#theme' => 'theme_template',
+      '#title' => 'HELLO',
+      '#content' => 'WORLD',
+      '#link' => '#',
     ];
+
   }
 
   public function autocomplete(Request $request) {
