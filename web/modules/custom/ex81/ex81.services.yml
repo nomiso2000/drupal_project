@@ -1,0 +1,8 @@
+services:
+  ex81_text_cleanup:
+    class: \Drupal\ex81\Services\TextCleanupServices
+    arguments: [ '@plugin.manager.text_cleanup', '@config.factory' ]
+
+  plugin.manager.text_cleanup:
+    class: Drupal\ex81\TextCleanupPluginManager
+    parent: default_plugin_manager

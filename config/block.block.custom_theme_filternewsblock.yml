@@ -10,7 +10,7 @@ dependencies:
 id: custom_theme_filternewsblock
 theme: custom_theme
 region: sidebar_second
-weight: 0
+weight: -10
 provider: null
 plugin: ex81_news_block_block
 settings:

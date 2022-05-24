@@ -1,0 +1,19 @@
+uuid: 7aeb6c30-0b55-47ff-a12b-75d44c94f6b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_neww_reference
+field_name: field_neww_reference
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

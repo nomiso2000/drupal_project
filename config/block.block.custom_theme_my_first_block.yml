@@ -10,7 +10,7 @@ dependencies:
 id: custom_theme_my_first_block
 theme: custom_theme
 region: sidebar_first
-weight: 0
+weight: -6
 provider: null
 plugin: custommodule_first_block_block
 settings:

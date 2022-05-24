@@ -10,7 +10,7 @@ dependencies:
 id: custom_theme_languageswitcher
 theme: custom_theme
 region: sidebar_second
-weight: 0
+weight: -9
 provider: null
 plugin: 'language_block:language_interface'
 settings:

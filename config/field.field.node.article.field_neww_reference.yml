@@ -1,15 +1,16 @@
-uuid: b8cacbf4-4e2f-4b58-9395-2b10cbc8ecf9
+uuid: dc2ea00e-e9db-45e1-b6cf-1bf68d8b0b3a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_1234
+    - field.storage.node.field_neww_reference
     - node.type.article
-id: node.article.field_1234
-field_name: field_1234
+    - node.type.news
+id: node.article.field_neww_reference
+field_name: field_neww_reference
 entity_type: node
 bundle: article
-label: '1234'
+label: neww_reference
 description: ''
 required: false
 translatable: false
@@ -19,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      article: article
+      news: news
     sort:
       field: _none
       direction: ASC

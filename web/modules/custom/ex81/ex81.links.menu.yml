@@ -1,0 +1,10 @@
+ex81.page_link:
+  title: 'Template'
+  route_name: 'ex81.example_controller'
+  menu_name: main
+
+ex81.text_cleanup_settings:
+  title: Text cleanup settings
+  parent: system.admin_config_system
+  route_name: ex81.text_cleanup_settings
+  weight: 10

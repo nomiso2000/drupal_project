@@ -18,4 +18,11 @@ ex81.settings_news:
     sorted:
       type: string
       label: 'Sorted'
-
+# Schema for the configuration files of the Beetroot Example module.
+ex81.text_cleanup.settings:
+  type: config_object
+  label: 'Beetroot Example settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

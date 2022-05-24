@@ -12,7 +12,7 @@ dependencies:
 id: custom_theme_webform
 theme: custom_theme
 region: sidebar_first
-weight: 0
+weight: -5
 provider: null
 plugin: webform_block
 settings:

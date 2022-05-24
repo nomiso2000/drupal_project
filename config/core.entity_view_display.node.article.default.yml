@@ -6,9 +6,9 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.article.body
     - field.field.node.article.comment
-    - field.field.node.article.field_1234
     - field.field.node.article.field_image
     - field.field.node.article.field_lerated_news
+    - field.field.node.article.field_neww_reference
     - field.field.node.article.field_tags
     - image.style.large
     - node.type.article
@@ -46,15 +46,6 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
-  field_1234:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
-    weight: 111
-    region: content
   field_image:
     type: image
     label: hidden
@@ -72,6 +63,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 112
+    region: content
+  field_neww_reference:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 113
     region: content
   field_tags:
     type: entity_reference_label

@@ -13,7 +13,7 @@ dependencies:
 id: custom_theme_views_block__last_news_block_1
 theme: custom_theme
 region: sidebar_first
-weight: 0
+weight: -11
 provider: null
 plugin: 'views_block:last_news-block_1'
 settings:

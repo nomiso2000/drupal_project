@@ -6,9 +6,9 @@ dependencies:
     - core.entity_view_mode.node.rss
     - field.field.node.article.body
     - field.field.node.article.comment
-    - field.field.node.article.field_1234
     - field.field.node.article.field_image
     - field.field.node.article.field_lerated_news
+    - field.field.node.article.field_neww_reference
     - field.field.node.article.field_tags
     - node.type.article
   module:
@@ -31,8 +31,8 @@ content:
 hidden:
   body: true
   comment: true
-  field_1234: true
   field_image: true
   field_lerated_news: true
+  field_neww_reference: true
   field_tags: true
   langcode: true

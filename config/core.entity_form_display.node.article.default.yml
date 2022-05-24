@@ -5,12 +5,13 @@ dependencies:
   config:
     - field.field.node.article.body
     - field.field.node.article.comment
-    - field.field.node.article.field_1234
     - field.field.node.article.field_image
     - field.field.node.article.field_lerated_news
+    - field.field.node.article.field_neww_reference
     - field.field.node.article.field_tags
     - image.style.thumbnail
     - node.type.article
+    - workflows.workflow.editorial
   module:
     - comment
     - content_moderation
@@ -47,16 +48,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_1234:
-    type: entity_reference_autocomplete
-    weight: 121
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_image:
     type: image_image
     weight: 4
@@ -68,6 +59,16 @@ content:
   field_lerated_news:
     type: entity_reference_revisions_autocomplete
     weight: 122
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_neww_reference:
+    type: entity_reference_autocomplete
+    weight: 123
     region: content
     settings:
       match_operator: CONTAINS

@@ -13,7 +13,7 @@ dependencies:
 id: custom_theme_exposedformnewspage_1
 theme: custom_theme
 region: sidebar_second
-weight: 0
+weight: -11
 provider: null
 plugin: 'views_exposed_filter_block:news-page_1'
 settings:

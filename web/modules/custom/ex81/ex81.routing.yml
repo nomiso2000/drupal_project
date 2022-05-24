@@ -45,3 +45,11 @@ ex81.settings_news:
     _title: 'Sort News'
   requirements:
     _permission: 'administer site configuration'
+
+ex81.text_cleanup_settings:
+  path: '/admin/config/system/text-cleanup-settings'
+  defaults:
+    _title: 'Text cleanup settings'
+    _form: 'Drupal\ex81\Form\TextCleanupSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

@@ -3,13 +3,14 @@
 namespace Drupal\ex81\Controllers;
 
 use Drupal\Core\Render\RendererInterface;
+use Drupal\node\Entity\Node;
 use Laminas\Diactoros\Response\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ExampleController extends \Drupal\Core\Controller\ControllerBase {
 
   public function view() {
-    $config = \Drupal::config('ex81.settings');
+
     //    return [
     //      '#markup' => $config->get('important_text'),
     //    ];
@@ -34,12 +35,32 @@ class ExampleController extends \Drupal\Core\Controller\ControllerBase {
     //      ],
     //
     //    ];
-    return [
-      '#theme' => 'theme_template',
-      '#title' => 'HELLO',
-      '#content' => 'WORLD',
-      '#link' => '#',
-    ];
+    $config = \Drupal::config('ex81.settings');
+    $nodes = Node::loadMultiple();
+    $output = [];
+    foreach ($nodes as $node) {
+      $links = [];
+      if ($node->hasField('field_neww_reference')) {
+        /** @var  \Drupal\node\NodeInterface[] $related */
+        $related = $node->get('field_neww_reference')->referencedEntities();
+        foreach ($related as $item) {
+          $links[] = [
+            '#theme' => 'theme_template_link',
+            '#title' => $item->label(),
+            '#url' => $item->toUrl('canonical')->toString(),
+          ];
+        }
+      }
+      $output[] = [
+        '#theme' => 'theme_template',
+        '#title' => $node->label(),
+        '#content' => $node->get('body')->view(['label' => 'hidden']),
+        '#links' => $links,
+        'type' => $node->bundle(),
+      ];
+    }
+    xdebug_break();
+    return $output;
 
   }
 

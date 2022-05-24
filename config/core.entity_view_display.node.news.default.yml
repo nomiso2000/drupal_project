@@ -17,9 +17,9 @@ dependencies:
   module:
     - comment
     - datetime
+    - ex81
     - image
     - metatag
-    - options
     - text
     - user
 id: node.news.default
@@ -90,7 +90,7 @@ content:
     weight: 106
     region: content
   field_type:
-    type: list_default
+    type: test_list
     label: above
     settings: {  }
     third_party_settings: {  }
