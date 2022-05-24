@@ -55,6 +55,7 @@ function ex81_theme($existing, $type, $theme, $path) {
           'content' => NULL,
           'links' => NULL,
           'type' => NULL,
+          'category' => NULL,
         ],
     ],
     'theme_template_link' => [
@@ -68,6 +69,14 @@ function ex81_theme($existing, $type, $theme, $path) {
     ],
 
   ];
+}
+
+function ex81_theme_suggestions_theme_template(array $variables) {
+  $suggestions = [];
+
+  $suggestions[] = 'theme_template__' . $variables['type'];
+
+  return $suggestions;
 }
 
 function ex81_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {

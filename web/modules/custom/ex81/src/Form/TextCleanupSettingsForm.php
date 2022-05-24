@@ -35,12 +35,11 @@ class TextCleanupSettingsForm extends ConfigFormBase {
       $options[$pluginId] = $pluginDefinition['label'];
     }
     $col = $this->config('ex81.text_cleanup.settings');
-    xdebug_break();
     $form['plugins'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Plugins'),
-      //      '#default_value' => $this->config('ex81.text_cleanup.settings')
-      //        ->get('plugins'),
+      '#default_value' => $this->config('ex81.text_cleanup.settings')
+        ->get('plugins'),
       '#options' => $options,
     ];
     return parent::buildForm($form, $form_state);
@@ -51,7 +50,7 @@ class TextCleanupSettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('ex81.text_cleanup.settings')
-      ->set('example', $form_state->getValue('example'))
+      ->set('plugins', $form_state->getValue('plugins'))
       ->save();
     parent::submitForm($form, $form_state);
   }

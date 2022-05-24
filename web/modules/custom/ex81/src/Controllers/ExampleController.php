@@ -43,6 +43,7 @@ class ExampleController extends \Drupal\Core\Controller\ControllerBase {
       if ($node->hasField('field_neww_reference')) {
         /** @var  \Drupal\node\NodeInterface[] $related */
         $related = $node->get('field_neww_reference')->referencedEntities();
+
         foreach ($related as $item) {
           $links[] = [
             '#theme' => 'theme_template_link',
@@ -56,10 +57,9 @@ class ExampleController extends \Drupal\Core\Controller\ControllerBase {
         '#title' => $node->label(),
         '#content' => $node->get('body')->view(['label' => 'hidden']),
         '#links' => $links,
-        'type' => $node->bundle(),
+        '#type' => $node->bundle(),
       ];
     }
-    xdebug_break();
     return $output;
 
   }
