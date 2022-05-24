@@ -11,6 +11,7 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
@@ -52,9 +53,20 @@ function ex81_theme($existing, $type, $theme, $path) {
         [
           'title' => NULL,
           'content' => NULL,
-          'link' => NULL,
+          'links' => NULL,
+          'type' => NULL,
         ],
     ],
+    'theme_template_link' => [
+      'variables' => [
+        'url' => NULL,
+        'title' => NULL,
+      ],
+    ],
+    'my_template' => [
+      'variables' => ['test_var' => NULL],
+    ],
+
   ];
 }
 
@@ -76,16 +88,31 @@ function _login_page_redirect_user_login_form_submit($form, \Drupal\Core\Form\Fo
 
 }
 
+//function ex81_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+//
+//
+//  if ($entity->getEntityTypeId() == 'node' && $entity->getType() == 'news' && $entity->field_last_update_date->value == '') {
+//    if (!$entity->isNew() && $entity->get('status')
+//        ->getValue() != $entity->original->get('status')
+//        ->getValue()) {
+//      $entity->field_last_update_date->value = date('Y-m-d') . 'T' . date('h:i:s');
+//    }
+//  }
+//}
 function ex81_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
-
-
-  if ($entity->getEntityTypeId() == 'node' && $entity->getType() == 'news' && $entity->field_last_update_date->value == '') {
-    if (!$entity->isNew() && $entity->get('status')
-        ->getValue() != $entity->original->get('status')
-        ->getValue()) {
-      $entity->field_last_update_date->value = date('Y-m-d') . 'T' . date('h:i:s');
-    }
+  if (!$entity instanceof NodeInterface
+    || $entity->bundle() !== 'plain_text'
+    || !$entity->hasField('field_plain_text')
+    || $entity->get('field_plain_text')->isEmpty()
+  ) {
+    return;
   }
+  $value = $entity->get('field_plain_text')->value;
+
+  /** @var  \Drupal\ex81\Services\TextCleanupServices $textCleanup */
+  $textCleanup = \Drupal::service('ex81_text_cleanup');
+  $entity->set('field_plain_text', $textCleanup->cleanUp($value));
+
 }
 
 function ex81_entity_update(EntityInterface $entity) {
