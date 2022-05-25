@@ -1,3 +1,9 @@
+<div>{{ attributes }}</div>
+{{ titple_prefix }}
+{% if label and not page %}
+  <h2>{{ title_attributes }} {{ title }}</h2>
+{% endif %}
+{{ title_suffix }}
 <h3>{{ title }}</h3>
 <div class="">{{ content }}</div>
 <p>{{ category }}</p>

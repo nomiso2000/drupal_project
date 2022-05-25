@@ -162,3 +162,23 @@ function ex81_entity_field_access($operation, FieldDefinitionInterface $field_de
   }
   return AccessResult::neutral();
 }
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function ex81_entity_view_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+
+  $a = 1;
+  //  xdebug_break();
+  //  \\wsl$\Ubuntu-20.04\home\nomiso\drupal_project\vendor\symfony\http-client-contracts\Test\Fixtures\web\modules\custom\ex81\ex81.module
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ex81_preprocess_theme_template(&$variables) {
+  $variables['#attached']['library'] = ['ex81/custom'];
+  $variables['#attached']['drupalSettings']['foo'] = ['bar' => 'baz'];
+
+}

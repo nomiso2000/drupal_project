@@ -34,6 +34,7 @@ class News {
           '#content' => $node->get('body')->view(['label' => 'hidden']),
           '#category' => $node->get('field_category')
             ->view(['label' => 'hidden']),
+
         ];
       }
       else {
@@ -41,6 +42,12 @@ class News {
           '#theme' => 'theme_template',
           '#title' => $node->label(),
           '#content' => $node->get('body')->view(['label' => 'hidden']),
+          '#attributes' => ['class' => ['foobar']],
+          '#attached' => [
+            'library' => [
+              'ex81/custom',
+            ],
+          ],
         ];
       }
 

@@ -1,10 +1,15 @@
-<h3>{{ title }}</h3>
-<div class="">{{ content }}</div>
-<p>{{ category }}</p>
-{% if links is not empty %}
-  <div>
-    {% for link in links %}
-      <p>{{ link }}</p>
-    {% endfor %}
-  </div>
-{% endif %}
+<div {{ attributes }}>
+  {{ titple_prefix }}
+  <h2>{{ title_attributes }} {{ title }}</h2>
+  {{ title_suffix }}
+  <h3>{{ title }}</h3>
+  <div class="">{{ content }}</div>
+  <p>{{ category }}</p>
+  {% if links is not empty %}
+    <div>
+      {% for link in links %}
+        <p>{{ link }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
