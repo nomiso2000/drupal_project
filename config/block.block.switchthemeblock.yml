@@ -1,25 +1,23 @@
-uuid: edf5ce28-b876-4f4d-84da-db0ea1b59a3e
+uuid: d7ee0534-b32e-430e-8d3c-21d1f86c0776
 langcode: en
 status: true
 dependencies:
   module:
     - context
     - ex81
-    - system
   theme:
     - custom_theme
-id: custom_theme_mytemplate
+id: switchthemeblock
 theme: custom_theme
 region: sidebar_second
-weight: -12
+weight: -8
 provider: null
-plugin: my_template_block
+plugin: ex81_switch_theme_block
 settings:
-  id: my_template_block
-  label: 'My Template'
-  label_display: '0'
+  id: ex81_switch_theme_block
+  label: 'Switch theme block'
+  label_display: visible
   provider: ex81
-  some_config: 'Some config'
 visibility:
   user_status:
     id: user_status
@@ -40,7 +38,3 @@ visibility:
     id: context
     negate: null
     values: ''
-  request_path:
-    id: request_path
-    negate: false
-    pages: '<front>'

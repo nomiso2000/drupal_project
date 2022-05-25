@@ -26,3 +26,10 @@ ex81.text_cleanup.settings:
     example:
       type: string
       label: 'Example'
+ex81.switch_theme:
+  type: config_object
+  label: 'Switch color theme'
+  mapping:
+    theme:
+      type: string
+      label: 'Theme'
