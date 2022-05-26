@@ -178,7 +178,23 @@ function ex81_entity_view_alter(array &$build, \Drupal\Core\Entity\EntityInterfa
  * Implements hook_preprocess_HOOK().
  */
 function ex81_preprocess_theme_template(&$variables) {
+
   $variables['#attached']['library'] = ['ex81/custom'];
   $variables['#attached']['drupalSettings']['foo'] = ['bar' => 'baz'];
+
+}
+
+function custom_theme_preprocess_html(&$variables) {
+  $config = \Drupal::config('ex81.switch_theme');
+  if ($config->get('theme') == 'light') {
+    $variables['attributes']['class'][] = 'theme-light';
+
+  }
+  else {
+    $variables['attributes']['class'][] = 'theme-dark';
+
+  }
+  $variables['#attached']['library'][] = 'ex81/custom';
+
 
 }
