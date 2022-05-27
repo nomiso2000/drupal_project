@@ -33,3 +33,26 @@ ex81.switch_theme:
     theme:
       type: string
       label: 'Theme'
+
+ex81.ex81.*:
+  type: config_entity
+  label: ex81
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    text:
+      type: string
+      label: Type
+    type:
+      type: string
+      label: Text
+    plugins:
+      type: sequence
+      label: 'plugins'
+      sequence:
+        type: string
+        label: 'plugins'

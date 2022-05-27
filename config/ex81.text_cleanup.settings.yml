@@ -1,4 +1,4 @@
 example: null
 plugins:
   uc_first: uc_first
-  add_dots: add_dots
+  add_dots: 0

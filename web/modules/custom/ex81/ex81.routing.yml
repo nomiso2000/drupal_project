@@ -53,3 +53,35 @@ ex81.text_cleanup_settings:
     _form: 'Drupal\ex81\Form\TextCleanupSettingsForm'
   requirements:
     _permission: 'administer site configuration'
+
+entity.ex81.collection:
+  path: '/admin/structure/ex81'
+  defaults:
+    _entity_list: 'ex81'
+    _title: 'ex81 configuration'
+  requirements:
+    _permission: 'administer ex81'
+
+entity.ex81.add_form:
+  path: '/admin/structure/ex81/add'
+  defaults:
+    _entity_form: 'ex81.add'
+    _title: 'Add an ex81'
+  requirements:
+    _permission: 'administer ex81'
+
+entity.ex81.edit_form:
+  path: '/admin/structure/ex81/{ex81}'
+  defaults:
+    _entity_form: 'ex81.edit'
+    _title: 'Edit an ex81'
+  requirements:
+    _permission: 'administer ex81'
+
+entity.ex81.delete_form:
+  path: '/admin/structure/ex81/{ex81}/delete'
+  defaults:
+    _entity_form: 'ex81.delete'
+    _title: 'Delete an ex81'
+  requirements:
+    _permission: 'administer ex81'

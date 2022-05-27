@@ -3,3 +3,4 @@ description: Example of a simple custom form
 type: module
 package: Custom
 core_version_requirement: ^9 || ^10
+configure: entity.ex81.collection

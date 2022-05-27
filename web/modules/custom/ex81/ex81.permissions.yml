@@ -4,3 +4,6 @@ permission_for_moders:
 view field published date:
   title: 'Access From field Published Date'
   description: 'Permission to view field published date'
+
+administer ex81:
+  title: 'Administer ex81'

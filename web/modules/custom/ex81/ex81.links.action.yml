@@ -1,0 +1,5 @@
+entity.ex81.add_form:
+  route_name: 'entity.ex81.add_form'
+  title: 'Add ex81'
+  appears_on:
+    - entity.ex81.collection
