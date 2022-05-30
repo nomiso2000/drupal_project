@@ -1,0 +1,4 @@
+administer example ex81 content types:
+  title: 'Administer example ex81 content types'
+  description: 'Maintain the types of example ex81 content entity.'
+  restrict access: true

@@ -1,0 +1,12 @@
+ex81_content.example_ex81_content_type.*:
+  type: config_entity
+  label: 'Example ex81 Content type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

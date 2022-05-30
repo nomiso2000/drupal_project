@@ -1,0 +1,5 @@
+entity.example_ex81_content_type.collection:
+  title: 'Example ex81 Content types'
+  description: 'Manage and CRUD actions on Example ex81 Content type.'
+  parent: system.admin_structure
+  route_name: entity.example_ex81_content_type.collection

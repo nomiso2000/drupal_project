@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Provides an example ex81 content entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\ex81_content\Entity\ExampleEx81Content;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function ex81_content_theme() {
+  return [
+    'example_ex81_content' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for example ex81 content templates.
+ *
+ * Default template: example-ex81-content.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the example ex81 content information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_example_ex81_content(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function ex81_content_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish example ex81 contents.
+      $storage = \Drupal::entityTypeManager()->getStorage('example_ex81_content');
+      $example_ex81_content_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($example_ex81_content_ids) as $example_ex81_content) {
+        $example_ex81_content->set('status', FALSE);
+        $example_ex81_content->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize example ex81 contents.
+      $storage = \Drupal::entityTypeManager()->getStorage('example_ex81_content');
+      $example_ex81_content_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($example_ex81_content_ids) as $example_ex81_content) {
+        $example_ex81_content->setOwnerId(0);
+        $example_ex81_content->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function ex81_content_user_predelete(UserInterface $account) {
+  // Delete example ex81 contents.
+  $storage = \Drupal::entityTypeManager()->getStorage('example_ex81_content');
+  $example_ex81_content_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $example_ex81_contents = $storage->loadMultiple($example_ex81_content_ids);
+  $storage->delete($example_ex81_contents);
+  // Delete old revisions.
+  $example_ex81_content_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($example_ex81_content_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

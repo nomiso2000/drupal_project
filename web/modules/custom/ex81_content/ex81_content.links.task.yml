@@ -1,0 +1,26 @@
+entity.example_ex81_content.view:
+  title: 'View'
+  route_name: entity.example_ex81_content.canonical
+  base_route: entity.example_ex81_content.canonical
+entity.example_ex81_content.edit_form:
+  title: 'Edit'
+  route_name: entity.example_ex81_content.edit_form
+  base_route: entity.example_ex81_content.canonical
+entity.example_ex81_content.delete_form:
+  title: 'Delete'
+  route_name: entity.example_ex81_content.delete_form
+  base_route: entity.example_ex81_content.canonical
+  weight: 10
+entity.example_ex81_content.collection:
+  title: 'Example ex81 Contents'
+  route_name: entity.example_ex81_content.collection
+  base_route: system.admin_content
+  weight: 10
+entity.example_ex81_content_type.edit_form:
+  title: 'Edit'
+  route_name: entity.example_ex81_content_type.edit_form
+  base_route: entity.example_ex81_content_type.edit_form
+entity.example_ex81_content_type.collection:
+  title: 'List'
+  route_name: entity.example_ex81_content_type.collection
+  base_route: entity.example_ex81_content_type.collection

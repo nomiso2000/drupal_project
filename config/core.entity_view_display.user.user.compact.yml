@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_addidtion_permission
-    - field.field.user.user.field_langua
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -29,6 +28,4 @@ content:
     region: content
 hidden:
   field_addidtion_permission: true
-  field_langua: true
-  langcode: true
   member_for: true

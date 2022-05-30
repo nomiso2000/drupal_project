@@ -1,0 +1,11 @@
+example_ex81_content.type_add:
+  title: 'Add example ex81 content type'
+  route_name: entity.example_ex81_content_type.add_form
+  appears_on:
+    - entity.example_ex81_content_type.collection
+
+example_ex81_content.add_page:
+  title: 'Add example ex81 content'
+  route_name: entity.example_ex81_content.add_page
+  appears_on:
+    - entity.example_ex81_content.collection
