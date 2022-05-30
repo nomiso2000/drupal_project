@@ -82,7 +82,10 @@ class Ex81 extends ConfigEntityBase implements Ex81Interface {
   }
 
   public function getPlugins(): array {
-    return array_filter($this->plugins);
+    if (isset($this->plugins)) {
+      return array_filter($this->plugins);
+    }
+    return [];
   }
 
 }

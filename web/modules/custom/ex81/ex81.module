@@ -108,20 +108,29 @@ function _login_page_redirect_user_login_form_submit($form, \Drupal\Core\Form\Fo
 //    }
 //  }
 //}
+//function ex81_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+//  if (!$entity instanceof NodeInterface
+//    || $entity->bundle() !== 'plain_text'
+//    || !$entity->hasField('field_plain_text')
+//    || $entity->get('field_plain_text')->isEmpty()
+//  ) {
+//    return;
+//  }
+//  $value = $entity->get('field_plain_text')->value;
+//
+//  /** @var  \Drupal\ex81\Services\TextCleanupServices $textCleanup */
+//  $textCleanup = \Drupal::service('ex81_text_cleanup');
+//  $entity->set('field_plain_text', $textCleanup->cleanUp($value));
+//
+//}
 function ex81_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
   if (!$entity instanceof NodeInterface
-    || $entity->bundle() !== 'plain_text'
-    || !$entity->hasField('field_plain_text')
-    || $entity->get('field_plain_text')->isEmpty()
   ) {
     return;
   }
-  $value = $entity->get('field_plain_text')->value;
-
-  /** @var  \Drupal\ex81\Services\TextCleanupServices $textCleanup */
-  $textCleanup = \Drupal::service('ex81_text_cleanup');
-  $entity->set('field_plain_text', $textCleanup->cleanUp($value));
-
+  /** @var \Drupal\ex81\Services\TextCleanupServices $textCleanup */
+  $textCleanup = Drupal::service('ex81_text_cleanup');
+  $textCleanup->cleanUpEntity($entity);
 }
 
 function ex81_entity_update(EntityInterface $entity) {

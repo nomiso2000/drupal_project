@@ -2,8 +2,11 @@
 
 namespace Drupal\ex81\Services;
 
+use Drupal;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\ex81\TextCleanupPluginManager;
+use Drupal\paragraphs\Plugin\migrate\source\d7\FieldableEntity;
 
 class TextCleanupServices {
 
@@ -44,6 +47,29 @@ class TextCleanupServices {
     return $text;
   }
 
+  public function cleanUpEntity(FieldableEntityInterface $entity) {
+    $storage = Drupal::entityTypeManager()->getStorage('ex81');
+    $configs = $storage->loadByProperties(['type' => $entity->bundle()]);
+    if (empty($configs)) {
+      return;
+    }
+    /** @var Drupal\ex81\Entity\Ex81 $config */
+    $config = reset($configs);
+    $plugins = $config->getPlugins();
+    $pluginDefinitions = $this->manager->getDefinitions();
+    foreach ($entity->getFields() as $field) {
+      //      if ($field->getFieldDefinition()->getType() === 'text_long') {
+      if ($field->getName() === 'field_plain_text') {
+        $value = $entity->get($field->getName())->value;
+        foreach (array_filter($plugins) as $pluginId) {
+          /** @var Drupal\ex81\TextCleanupInterface $plugin */
+          $plugin = $this->manager->createInstance($pluginId, $pluginDefinitions[$pluginId]);
+          $value = $plugin->cleanUp($value);
+        }
+        $entity->set($field->getName(), $value);
+      }
+    }
+  }
   //  public function addDots(string $text) {
   //    $lines = explode("\r\n", $text);
   //    foreach ($lines as $line) {
