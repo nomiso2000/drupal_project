@@ -207,3 +207,50 @@ function custom_theme_preprocess_html(&$variables) {
 
 
 }
+
+/**
+ * Implement hook_entity_insert()
+ */
+
+function ex81_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof NodeInterface) {
+    Drupal::queue('ex81_adminnotify')->createItem($entity->id());
+
+  }
+}
+
+/**
+ * Implement hook_cron()
+ */
+//
+//function ex81_cron() {
+//  $users = Drupal::state()->get('registered_users', []);
+//  $userId = array_shift($users);
+//  //Send email
+//  $user = \Drupal\user\Entity\User::loadMultiple($userId);
+//  Drupal::state()->set('registered_users', $users);
+//}
+//
+
+/**
+ * Implement hook_mail()
+ */
+function ex81_mail($key, &$message, $params) {
+  //  $account = $params['account'];
+  //  $context = $params['context'];
+  //  $variables = [
+  //    '%site_name' => \Drupal::config('system.site')->get('name'),
+  //    '%username' => $account->getDisplayName(),
+  //  ];
+  //  if ($context['hook'] == 'taxonomy') {
+  //    $entity = $params['entity'];
+  //    $vocabulary = Vocabulary::load($entity->id());
+  //    $variables += [
+  //      '%term_name' => $entity->name,
+  //      '%term_description' => $entity->description,
+  //      '%term_id' => $entity->id(),
+  //      '%vocabulary_name' => $vocabulary->label(),
+  //      '%vocabulary_description' => $vocabulary->getDescription(),
+  //      '%vocabulary_id' => $vocabulary->id(),
+  //    ];
+}

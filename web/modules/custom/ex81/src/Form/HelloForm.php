@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 //FORM ELEMENTS Render/Element/  @annotationFormElement
 //class FormElement - contains all additional fields
@@ -41,6 +42,12 @@ class HelloForm extends FormBase {
         'class' => ['first', 'second'],
         'id' => 'some_id',
       ],
+    ];
+    $form['number'] = [
+      '#title' => $this->t('Number of entity'),
+      '#type' => 'number',
+      '#min' => 1,
+      '#max' => 10,
     ];
     $form['container']['description'] = [
       '#type' => 'item',
@@ -193,6 +200,22 @@ class HelloForm extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $number = $form_state->getValue('number');
+    $params = [
+      'type' => 'news',
+      'title' => $form_state->getValue('title'),
+      'body' => $form_state->getValue('body'),
+    ];
+    $operations = [];
+    foreach (range(1, $number) as $i) {
+      $arg = $params;
+      $arg['title'] .= ' - ' . $i;
+      $operations[] = ['\Drupal\ex81\Form\HelloForm::createNode', [$arg]];
+    }
+    batch_set([
+      'title' => $this->t('Node creation'),
+      'operations' => $operations,
+    ]);
     //    $storage = \Drupal::entityTypeManager()->getStorage('node');
     $createNode = Node::create([
       'type' => 'news',
@@ -227,5 +250,10 @@ class HelloForm extends FormBase {
     return $form['color_wrapper'];
   }
 
+  public static function createNode(array $params) {
+    $node = Node::create($params);
+    $node->save();
+    \Drupal::messenger()->addStatus('Node added');
+  }
 
 }
