@@ -85,3 +85,10 @@ entity.ex81.delete_form:
     _title: 'Delete an ex81'
   requirements:
     _permission: 'administer ex81'
+ex81.listofnews:
+  path: '/listofnews'
+  defaults:
+    _form: 'Drupal\ex81\Form\ListOfNews'
+    _title: 'Simple custom form example'
+  requirements:
+    _permission: 'access content'

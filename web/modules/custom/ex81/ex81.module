@@ -222,15 +222,28 @@ function ex81_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
 /**
  * Implement hook_cron()
  */
-//
-//function ex81_cron() {
-//  $users = Drupal::state()->get('registered_users', []);
-//  $userId = array_shift($users);
-//  //Send email
-//  $user = \Drupal\user\Entity\User::loadMultiple($userId);
-//  Drupal::state()->set('registered_users', $users);
-//}
-//
+
+function ex81_cron() {
+  $now = new DrupalDateTime('now');
+  $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
+  $now = $now->getTimestamp();
+  $nodeStorage = Drupal::entityTypeManager()->getStorage('node');
+  $nodeIds = $nodeStorage->getQuery()
+    ->condition('type', 'news')
+    ->condition('status', 1)
+    ->condition('field_archive', 0)
+    ->execute();
+  $nodes = $nodeStorage->loadMultiple($nodeIds);
+  foreach ($nodes as $node) {
+    $published = $node->get('field_published')->date->getTimestamp();
+    $diff = $now - $published;
+    if ($diff > 60 * 60 * 24 * 30) {
+      $node->set('field_archive', 1);
+      $node->save();
+    }
+  }
+}
+
 
 /**
  * Implement hook_mail()

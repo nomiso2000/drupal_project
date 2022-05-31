@@ -58,7 +58,6 @@ class TextCleanupServices {
     $plugins = $config->getPlugins();
     $pluginDefinitions = $this->manager->getDefinitions();
     foreach ($entity->getFields() as $field) {
-      //      if ($field->getFieldDefinition()->getType() === 'text_long') {
       if ($field->getName() === 'field_plain_text') {
         $value = $entity->get($field->getName())->value;
         foreach (array_filter($plugins) as $pluginId) {
