@@ -18,12 +18,16 @@ class ListOfNews extends \Drupal\Core\Form\FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $storage = \Drupal::entityTypeManager()->getStorage('node');
-    $nodeIds = $storage->getQuery()->condition('type', 'news')->execute();
+    $nodeIds = $storage->getQuery()
+      ->condition('type', 'news')
+      ->condition('field_archive', 0)
+      ->execute();
     $nodes = $storage->loadMultiple($nodeIds);
     $output = [];
     foreach ($nodes as $node) {
       $output[] = [
-        'title' => $node->get('title')->value,
+        'id' => $node->id(),
+        'title' => $node->label(),
       ];
     }
     $header = [
@@ -52,29 +56,28 @@ class ListOfNews extends \Drupal\Core\Form\FormBase {
    * @inheritDoc
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $selected = $form_state->getValue('table');
-    $selectedIds = [];
+    $nodes = $form['table']['#options'];
+    $selectdVariablesIds = $form_state->getValue('table');
+    $i = 0;
     $operations = [];
-    foreach ($selected as $nid) {
-      if (is_string($nid)) {
-        $selectedIds[] = $nid;
+    foreach ($nodes as $node) {
+      if (is_string($selectdVariablesIds[$i])) {
         $operations[] = [
           '\Drupal\ex81\Form\ListOfNews::toArchive',
-          [$selectedIds],
+          [$node['id']],
         ];
       }
+      $i++;
     }
     batch_set([
       'title' => $this->t('Archive selected News'),
       'operations' => $operations,
     ]);
-    //    foreach (range(1, $number) as $i) {
-    //      $operations[] = ['\Drupal\ex81\Form\ListOfNews::createNode', [$arg]];
   }
 
   public static function toArchive($params) {
     $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
-    $node = $nodeStorage->load($params[0]);
+    $node = $nodeStorage->load($params);
     $node->set('field_archive', 1);
     $node->save();
   }
