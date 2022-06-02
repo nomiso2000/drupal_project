@@ -23,6 +23,7 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  ex81: 0
   ex81_content: 0
   field: 0
   field_ui: 0

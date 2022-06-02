@@ -193,6 +193,11 @@ function ex81_preprocess_theme_template(&$variables) {
 
 }
 
+//function ex81_preprocess_ex81_hello_form(&$variables) {
+//  $variables['#attached']['library'] = ['ex81/custom'];
+//
+//}
+
 function custom_theme_preprocess_html(&$variables) {
   $config = \Drupal::config('ex81.switch_theme');
   if ($config->get('theme') == 'light') {

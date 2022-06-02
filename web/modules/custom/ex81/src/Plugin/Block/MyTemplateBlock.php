@@ -5,6 +5,7 @@ namespace Drupal\ex81\Plugin\Block;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Provides a 'My Template' block.
@@ -72,6 +73,13 @@ class MyTemplateBlock extends BlockBase {
    */
   public function build() {
     return ['#markup' => $this->configuration['some_config']];
+    //    $cache = \Drupal::cache()->get('homepage_lst_news');
+    //    if ($cache) {
+    //      return ['#markup' => implode(', '), $cache->data];
+    //    }
+    //    $nodes = Node::loadMultiple();
+    //    $labels = array_map(fn(Node $node) => )
+
   }
 
   protected function blockAccess(AccountInterface $account) {

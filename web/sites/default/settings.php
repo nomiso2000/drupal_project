@@ -68,6 +68,7 @@
  *
  * One example of the simplest connection array is shown below. To use the
  * sample settings, copy and uncomment the code below between the @code and
+ *
  * @endcode lines and paste it after the $databases declaration. You will need
  * to replace the database username and password and possibly the host and port
  * with the appropriate credentials for your database system.
@@ -124,6 +125,7 @@ $databases = [];
  * traditionally referred to as master/slave in database server documentation).
  *
  * The general format for the $databases array is as follows:
+ *
  * @code
  * $databases['default']['default'] = $info_array;
  * $databases['default']['replica'][] = $info_array;
@@ -245,6 +247,7 @@ $databases = [];
  * stored with backups of your database.
  *
  * Example:
+ *
  * @code
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
@@ -283,6 +286,7 @@ $settings['update_free_access'] = FALSE;
  * allow an insecure fallback to HTTP. Note that doing so will open your site up
  * to a potential man-in-the-middle attack. You should instead attempt to
  * resolve the issues before enabling this option.
+ *
  * @see https://www.drupal.org/docs/system-requirements/php-requirements#openssl
  * @see https://en.wikipedia.org/wiki/Man-in-the-middle_attack
  * @see \Drupal\update\UpdateFetcher
@@ -361,13 +365,21 @@ $settings['update_free_access'] = FALSE;
  * - \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
  *
  * Note the default value of
+ *
  * @code
- * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
  * @endcode
  * is not secure by default. The value should be set to only the specific
  * headers the reverse proxy uses. For example:
  * @code
- * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO
+ * \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT |
+ *   \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO
  * @endcode
  * This would trust the following headers:
  * - X_FORWARDED_FOR
@@ -503,7 +515,7 @@ $settings['update_free_access'] = FALSE;
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-$settings['file_private_path'] = '../private' ;
+$settings['file_private_path'] = '../private';
 
 /**
  * Temporary file path:
@@ -680,6 +692,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * like to allow.
  *
  * For example:
+ *
  * @code
  * $settings['trusted_host_patterns'] = [
  *   '^www\.example\.com$',
@@ -769,7 +782,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
+$databases['default']['default'] = [
   'database' => 'test',
   'username' => 'user',
   'password' => 'pass',
@@ -778,9 +791,9 @@ $databases['default']['default'] = array (
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-);
+];
 $settings['config_sync_directory'] = '../config';
 $settings['skip_permissions_hardening'] = TRUE;
 $config['system.logging']['error_level'] = 'verbose';
-$config['system.perfomance']['css']['preprocess'] = FALSE;
-$config['system.perfomance']['js']['preprocess'] = FALSE;
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;

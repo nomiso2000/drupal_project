@@ -2,3 +2,10 @@ body.theme-dark {
   background-color: darkgray;
   color: black;
 }
+#ajax-wrapper {
+  background-color: black;
+  color: white;
+}
+#ajax-wrapper a {
+  color: white;
+}
