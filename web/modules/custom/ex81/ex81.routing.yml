@@ -92,15 +92,15 @@ ex81.hello_form:
     _title: 'Simple custom form example'
   requirements:
     _permission: 'access content'
-ex81.helloform_ajax:
-  path: '/ex81/helloform/ajax'
+ex81.example_ajax:
+  path: '/ex81/ajax'
   defaults:
-    _controller: '\Drupal\ex81\Controllers\News::ajaxLink'
+    _controller: '\Drupal\ex81\Controllers\ExampleAjax::ajaxLink'
   requirements:
     _permission: 'access content'
-ex81.helloform_api:
-  path: '/ex81/helloform/api'
+ex81.example_api:
+  path: '/ex81/api'
   defaults:
-    _controller: '\Drupal\ex81\Controllers\News::api'
+    _controller: '\Drupal\ex81\Controllers\ExampleAjax::api'
   requirements:
     _permission: 'access content'
