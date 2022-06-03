@@ -104,3 +104,17 @@ ex81.example_api:
     _controller: '\Drupal\ex81\Controllers\ExampleAjax::api'
   requirements:
     _permission: 'access content'
+ex81.drupal_version:
+  path: '/ex81/version'
+  defaults:
+    _controller: '\Drupal\ex81\Controllers\ExampleAjax::version'
+  requirements:
+    _permission: 'access content'
+ex81.drupal_latest:
+  path: '/ex81/latest'
+  defaults:
+    _controller: '\Drupal\ex81\Controllers\ExampleAjax::latest'
+  requirements:
+    _permission: 'access content'
+
+

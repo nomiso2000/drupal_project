@@ -56,3 +56,6 @@
 instruction.txt
 /.editorconfig
 /.gitattributes
+# Ignore forntend deps.
+web/themes/custom/custom_theme/node_modules/
+web/themes/custom/custom_theme/dist/

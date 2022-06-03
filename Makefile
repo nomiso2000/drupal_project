@@ -3,7 +3,7 @@ include .env
 default: install
 up:
 	docker-compose up -d
-down: 
+down:
 	docker-compose down
 stop:
 	docker-compose stop
@@ -16,7 +16,9 @@ install: up
 	docker-compose exec -T php bash -c "drush user:role:add administrator test"
 	docker-compose exec -T php bash -c 'mkdir -p "drush" && echo -e "options:\n  uri: http://$(PROJECT_BASE_URL)" > drush/drush.yml'
 
-cli: 
+cli:
 	docker-compose exec php bash
+node-cli:
+	docker-compose exec node bash
 test:
 	docker-compose exec -T php curl 0.0.0.0:80 -H "Host: $(PROJECT_BASE_URL)"

@@ -1,0 +1,27 @@
+uuid: 3e3cc6db-50bc-419d-b5d8-55c2fb5b613b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - custom_theme
+id: custom_theme_newsblock
+theme: custom_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:e51ffc37-8337-4238-8162-3fa5fed937fe'
+settings:
+  id: 'block_content:e51ffc37-8337-4238-8162-3fa5fed937fe'
+  label: 'News block'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/news/*'

@@ -1,0 +1,41 @@
+uuid: e442398a-fb67-40f9-8a5e-40b53cbfdc96
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+    - ex81
+  theme:
+    - bartik
+id: mytemplate
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: my_template_block
+settings:
+  id: my_template_block
+  label: 'My Template'
+  label_display: visible
+  provider: ex81
+  some_config: ''
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
+  context:
+    id: context
+    negate: null
+    values: ''

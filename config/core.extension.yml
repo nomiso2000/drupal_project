@@ -68,4 +68,6 @@ theme:
   stable: 0
   classy: 0
   bootstrap5: 0
+  bootstrap: 0
+  custom_theme: 0
 profile: minimal

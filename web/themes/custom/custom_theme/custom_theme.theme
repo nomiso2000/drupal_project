@@ -1,68 +1,68 @@
 <?php
-/**
- * @file
- * Functions to support theming in the custom_theme theme.
- */
-
-
-/** Implements hook_theme_suggestions_HOOK_alter();  */
-function custom_theme_theme_suggestions_theme_template_alter(array &$suggestions, array $variables) {
-  if (!empty($variables['category'][0])) {
-    if ($variables['category'][0]['#title'] == 'Category 1') {
-      $suggestions[] = 'theme_template__left';
-    }
-    else {
-      $suggestions[] = 'theme_template__right';
-    }
-  }
-}
-
+///**
+// * @file
+// * Functions to support theming in the custom_theme theme.
+// */
+//
+//
+///** Implements hook_theme_suggestions_HOOK_alter();  */
+//function custom_theme_theme_suggestions_theme_template_alter(array &$suggestions, array $variables) {
+//  if (!empty($variables['category'][0])) {
+//    if ($variables['category'][0]['#title'] == 'Category 1') {
+//      $suggestions[] = 'theme_template__left';
+//    }
+//    else {
+//      $suggestions[] = 'theme_template__right';
+//    }
+//  }
+//}
+//
+////function custom_theme_preprocess_node(&$variables) {
+////  xdebug_break();
+////  $a = 1;
+////}
+//
+//
+///**
+// * @file
+// * Functions to support theming in the Custom Theme theme.
+// */
+//
+//
+////
+////function custom_theme_preprocess_html(&$variables) {
+////
+////}
+//
+//
+///**
+// * Implements hook_preprocess_HOOK() for node.html.twig.
+// */
 //function custom_theme_preprocess_node(&$variables) {
-//  xdebug_break();
-//  $a = 1;
+//  /** @var \Drupal\node\NodeInterface $node */
+//  $node = $variables['node'];
+//  if ($node->bundle() == 'news') {
+//    $variables['title_prefix'] = t("News: ");
+//  }
+//  $variables['attributes']['class'][] = 'old-content';
+//  //  if ($node->getCreatedTime() < (\Drupal::time()
+//  //        ->getCurrentTime() - 24 * 60 * 60)) {
+//  //
+//  //  }
 //}
-
-
-/**
- * @file
- * Functions to support theming in the Custom Theme theme.
- */
-
-
 //
-//function custom_theme_preprocess_html(&$variables) {
-//
+//function custom_theme_preprocess_page_title(&$variables) {
+//  /** @var \Drupal\node\NodeInterface $node */
+//  $node = \Drupal::routeMatch()->getParameter('node');
+//  if (isset($node)) {
+//    if ($node->bundle() == 'news') {
+//      $variables['title'] = "News: " . $node->getTitle();
+//    }
+//  }
 //}
-
-
-/**
- * Implements hook_preprocess_HOOK() for node.html.twig.
- */
-function custom_theme_preprocess_node(&$variables) {
-  /** @var \Drupal\node\NodeInterface $node */
-  $node = $variables['node'];
-  if ($node->bundle() == 'news') {
-    $variables['title_prefix'] = t("News: ");
-  }
-  $variables['attributes']['class'][] = 'old-content';
-  //  if ($node->getCreatedTime() < (\Drupal::time()
-  //        ->getCurrentTime() - 24 * 60 * 60)) {
-  //
-  //  }
-}
-
-function custom_theme_preprocess_page_title(&$variables) {
-  /** @var \Drupal\node\NodeInterface $node */
-  $node = \Drupal::routeMatch()->getParameter('node');
-  if (isset($node)) {
-    if ($node->bundle() == 'news') {
-      $variables['title'] = "News: " . $node->getTitle();
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK() for html.html.twig.
- */
-
-
+//
+///**
+// * Implements hook_preprocess_HOOK() for html.html.twig.
+// */
+//
+//

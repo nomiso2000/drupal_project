@@ -94,7 +94,34 @@ class ExampleAjax {
         '#url' => Url::fromRoute('ex81.example_api'),
         '#attributes' => ['class' => ['use-ajax']],
       ],
+      [
+        '#theme' => 'container',
+        '#attributes' => ['id' => 'react-root-id'],
+      ],
     ];
+  }
+
+  public function version() {
+    return new JsonResponse([
+      'version' => \Drupal::VERSION,
+    ]);
+  }
+
+  public function latest() {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $ids = $storage->getQuery()
+      ->range(0, 10)
+      ->condition('status', 1)
+      ->execute();
+    $output = [];
+    $nodes = $storage->loadMultiple($ids);
+    foreach ($nodes as $node) {
+      $output[] = [
+        'title' => $node->label(),
+        'url' => $node->toUrl('canonical')->toString(),
+      ];
+    }
+    return new JsonResponse($output);
   }
 
 }

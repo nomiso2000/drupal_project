@@ -5,6 +5,8 @@ description: Theme based on bootstrap theme
 package: Custom
 core: 8.x
 core_version_requirement: ^8 || ^9
+libraries:
+  - "custom_theme/global-libraries"
 
 regions:
   navigation: 'Navigation'
