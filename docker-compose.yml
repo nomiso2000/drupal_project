@@ -53,6 +53,6 @@ services:
     volumes:
       - .:/home/node/app
     working_dir: /home/node/app/web/themes/custom/custom_theme
-#    command: sh -c "npm ci && npm run build"
+    command: sh -c "npm ci && npm run build"
 volumes:
   my-datavolume:

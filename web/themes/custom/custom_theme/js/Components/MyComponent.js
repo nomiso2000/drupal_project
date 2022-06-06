@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
+import {useTable} from "react-table";
 
 // export function MyComponent() {
 //   console.log('HERE I AM РУКУ');
