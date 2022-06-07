@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * hook_install()
+ * it triggered once, during install module
+ */
+
+function ex81_install() {
+}
+
+/**
+ * hook_preuninstal()
+ * it triggered once, when we unintall nodule. Useful for deleting module
+ * entities from DB
+ */
+
+function ex81_preuninstall() {
+}
+
+/**
+ * hook_uninstall()
+ * it triggered once, after deleting module.
+ */
+
+function ex81_uninstall() {
+}
+
+/**
+ * Implements hook_update_N()
+ */
+function ex81_update_9000(&$sandbox) {
+  \Drupal\node\Entity\Node::create([
+    'type' => 'news',
+    'title' => 'News created when update DB',
+    'status' => 1,
+  ])->save();
+
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function ex81_update_9001(&$sandbox) {
+
+}

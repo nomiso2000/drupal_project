@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ */
+function ex81_content_update_9000(&$sandbox) {
+  $storage_definition = \Drupal\Core\Field\BaseFieldDefinition::create('boolean')
+    ->setLabel('Flag')
+    ->setDefaultValue(TRUE)
+    ->setSetting('on_label', 'Yes');
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('flag', 'example_ex81_content', 'ex81_content', $storage_definition);
+}
+
+function ex81_content_update_9001(&$sandbox) {
+  if (!isset($sandbox['ids'])) {
+    $sandbox['ids'] = \Drupal::entityQuery('example_ex81_content')->execute();
+  }
+  if (empty($sandbox['ids'])) {
+    $sandbox['#finished'] = 1;
+    return t('All items updated');
+  }
+  $id = array_shift($sandbox['ids']);
+  $entity = \Drupal\ex81_content\Entity\ExampleEx81Content::load($id);
+  $entity->set('flag', TRUE);
+  $entity->save();
+  $sandbox['#finished'] = 0;
+  return t('@name update', ['@name' => $entity->label()]);
+
+}

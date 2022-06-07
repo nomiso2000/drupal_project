@@ -192,7 +192,6 @@ class ExampleEx81Content extends RevisionableContentEntityBase implements Exampl
       ->setLabel(t('Changed'))
       ->setTranslatable(TRUE)
       ->setDescription(t('The time that the example ex81 content was last edited.'));
-
     return $fields;
   }
 
