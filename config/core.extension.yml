@@ -36,6 +36,7 @@ module:
   jquery_ui_datepicker: 0
   jquery_ui_slider: 0
   jquery_ui_touch_punch: 0
+  jsonapi: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
@@ -47,6 +48,7 @@ module:
   permissions_by_term: 0
   rdf: 0
   rest: 0
+  restui: 0
   search: 0
   serialization: 0
   shortcut: 0
