@@ -1,0 +1,47 @@
+uuid: 4565019c-3c22-49b8-bcc3-35bad50b8e61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.image_slider.field_carrusel
+    - node.type.image_slider
+  module:
+    - slick_paragraphs
+    - user
+id: node.image_slider.default
+targetEntityType: node
+bundle: image_slider
+mode: default
+content:
+  field_carrusel:
+    type: slick_paragraphs_vanilla
+    label: above
+    settings:
+      optionset: default
+      view_mode: default
+      cache: 0
+      skin: classic
+      lazy: ''
+      style: ''
+      overridables:
+        arrows: arrows
+        dots: dots
+        infinite: infinite
+        autoplay: '0'
+        draggable: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      override: true
+      skin_arrows: ''
+      skin_dots: ''
+      use_theme_field: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
