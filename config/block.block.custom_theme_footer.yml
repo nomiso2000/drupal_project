@@ -1,6 +1,6 @@
 uuid: 8dedfa40-ee5b-4df0-ac9e-110d1b5295a2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -13,7 +13,7 @@ _core:
 id: custom_theme_footer
 theme: custom_theme
 region: navigation
-weight: 0
+weight: -5
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

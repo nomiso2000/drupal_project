@@ -10,7 +10,7 @@ id: node.advertisement.field_city
 field_name: field_city
 entity_type: node
 bundle: advertisement
-label: city
+label: 'Місто розташування квартири'
 description: ''
 required: false
 translatable: false

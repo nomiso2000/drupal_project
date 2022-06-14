@@ -1,11 +1,22 @@
-body.theme-dark {
-  background-color: darkgray;
-  color: black;
+/*body.theme-dark {*/
+/*  background-color: darkgray;*/
+/*  color: black;*/
+/*}*/
+/*#ajax-wrapper {*/
+/*  background-color: black;*/
+/*  color: white;*/
+/*}*/
+/*#ajax-wrapper a {*/
+/*  color: white;*/
+/*}*/
+div .navbar-header {
+  width: 100%;
 }
-#ajax-wrapper {
-  background-color: black;
-  color: white;
+div .region-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-#ajax-wrapper a {
-  color: white;
+div .node--type-advertisement.node--view-mode-teaser.ds-2col-fluid {
+  margin-top: 16px;
 }

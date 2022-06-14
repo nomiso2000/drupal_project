@@ -9,7 +9,7 @@ id: node.advertisement.field_flat_description
 field_name: field_flat_description
 entity_type: node
 bundle: advertisement
-label: flat_description
+label: 'Опис квартири:'
 description: ''
 required: false
 translatable: false

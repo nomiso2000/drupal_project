@@ -21,13 +21,31 @@ class CreateAds extends \Drupal\Core\Form\FormBase {
    * @inheritDoc
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+
     $cities = $this->getTaxTerm('city');
     $rooms = $this->getTaxTerm('kimnat');
+    $form['title'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Title'),
+      '#description' => $this->t('The title of ads'),
+      '#required' => TRUE,
+      //      "#size" => 15,
+      //      '#title_display' => 'after',
+      '#wrapper_attributes' => [
+        'class' => ['custom_class_for_wrapper'],
+      ],
+      '#attributes' => [
+        'class' => ['custom_class_for_input'],
+        'id' => 'some_id_input',
+      ],
+      '#autocomplete_route_name' => 'ex81.route_with_autocomplete',
+    ];
     $form['images'] = [
       '#type' => 'managed_file',
       '#multiple' => TRUE,
       '#title' => $this->t('Imagefile'),
       '#upload_location' => 'private://images/',
+      '#required' => TRUE,
       //      '#upload_location' => 'public://images/redaktion/',
       //      '#default_value' => $this->configuration['imagefile'],
     ];
@@ -36,20 +54,23 @@ class CreateAds extends \Drupal\Core\Form\FormBase {
       '#title' => $this->t('Content'),
       '#default_value' => (new Random())->paragraphs(1),
     ];
-    $form['number'] = [
+    $form['price'] = [
       '#title' => $this->t('The price of the monthly payment for the apartment'),
       '#type' => 'number',
       '#min' => 1,
+      '#required' => TRUE,
     ];
     $form['cities'] = [
       '#type' => 'select',
       '#title' => $this->t('Choose city where flat located'),
       '#options' => $cities,
+      '#required' => TRUE,
     ];
     $form['rooms'] = [
       '#type' => 'select',
       '#title' => $this->t('Number of rooms in the apartment'),
       '#options' => $rooms,
+      '#required' => TRUE,
     ];
     $form['actions'] = [
       '#type' => 'actions',
@@ -71,10 +92,11 @@ class CreateAds extends \Drupal\Core\Form\FormBase {
     $para = $this->createParaForImageSlider($files);
     $createNode = Node::create([
       'type' => 'advertisement',
-      'title' => '$form_state',
+      'title' => $form_state->getValue('title'),
       'uid' => \Drupal::currentUser()->id(),
-      'city' => $form_state->getValue('cities'),
-      'room' => $form_state->getValue('rooms'),
+      'field_city' => $form_state->getValue('cities'),
+      'field_rooms' => $form_state->getValue('rooms'),
+      'field_month_price' => $form_state->getValue('price'),
       'field_flat_description' => $form_state->getValue('flat_description'),
       'field_ad_image_carrusel' => $para,
     ]);

@@ -1,6 +1,6 @@
 uuid: 300a9f92-82c5-4148-b60b-ace8f81426dc
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -11,7 +11,7 @@ _core:
 id: custom_theme_powered
 theme: custom_theme
 region: navigation
-weight: 10
+weight: -4
 provider: null
 plugin: system_powered_by_block
 settings:

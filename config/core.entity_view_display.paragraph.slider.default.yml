@@ -15,7 +15,7 @@ mode: default
 content:
   field_sup_image:
     type: blazy
-    label: above
+    label: hidden
     settings:
       caption:
         title: '0'

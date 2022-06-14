@@ -1,6 +1,6 @@
 uuid: f4c5c887-220c-4245-94f3-4b8f6f3bb043
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: d-0emr1mEq7sFKDu5RHUJckvNk62hvIZdRwPEfnJyGg
 id: custom_theme_branding
 theme: custom_theme
-region: header
-weight: 0
+region: navigation
+weight: -9
 provider: null
 plugin: system_branding_block
 settings:

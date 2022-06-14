@@ -66,7 +66,7 @@ mode: teaser
 content:
   field_ad_image_carrusel:
     type: slick_paragraphs_vanilla
-    label: above
+    label: hidden
     settings:
       optionset: default
       view_mode: default
@@ -94,7 +94,7 @@ content:
     region: left
   field_city:
     type: entity_reference_label
-    label: hidden
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -109,7 +109,7 @@ content:
     region: right
   field_month_price:
     type: number_integer
-    label: above
+    label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true

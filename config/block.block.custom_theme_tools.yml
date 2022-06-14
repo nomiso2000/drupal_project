@@ -1,6 +1,6 @@
 uuid: 339fe40d-0369-4c80-a372-6af7d4ebaa29
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.tools
@@ -13,7 +13,7 @@ _core:
 id: custom_theme_tools
 theme: custom_theme
 region: sidebar_first
-weight: 0
+weight: -4
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

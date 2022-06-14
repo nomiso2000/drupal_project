@@ -13,6 +13,31 @@ dependencies:
     - ds
     - slick_paragraphs
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_ad_image_carrusel
+        - field_month_price
+        - field_city
+        - field_rooms
+        - field_flat_description
+        - links
 id: node.advertisement.default
 targetEntityType: node
 bundle: advertisement
@@ -20,7 +45,7 @@ mode: default
 content:
   field_ad_image_carrusel:
     type: slick_paragraphs_vanilla
-    label: above
+    label: hidden
     settings:
       optionset: default
       view_mode: default
@@ -45,7 +70,7 @@ content:
       ds:
         ds_limit: ''
     weight: 0
-    region: content
+    region: ds_content
   field_city:
     type: entity_reference_label
     label: above
@@ -53,14 +78,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 2
-    region: content
+    region: ds_content
   field_flat_description:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 4
-    region: content
+    region: ds_content
   field_month_price:
     type: number_integer
     label: above
@@ -69,7 +94,7 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 1
-    region: content
+    region: ds_content
   field_rooms:
     type: entity_reference_label
     label: above
@@ -77,10 +102,10 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
-    region: content
+    region: ds_content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 5
-    region: content
+    region: ds_content
 hidden: {  }

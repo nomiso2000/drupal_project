@@ -123,4 +123,7 @@ ex81.create_ads:
     _title: 'Create ads Form'
   requirements:
     _permission: 'access content'
-
+ex81.user_ads:
+  path: '/userads'
+  requirements:
+    _permission: 'access content'

@@ -6,6 +6,7 @@ dependencies:
     - views.view.last_news
   module:
     - context
+    - node
     - system
     - views
   theme:
@@ -13,7 +14,7 @@ dependencies:
 id: custom_theme_views_block__last_news_block_1
 theme: custom_theme
 region: sidebar_first
-weight: 0
+weight: -8
 provider: null
 plugin: 'views_block:last_news-block_1'
 settings:
@@ -47,3 +48,10 @@ visibility:
     id: request_path
     negate: false
     pages: '<front>'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      advertisement: advertisement

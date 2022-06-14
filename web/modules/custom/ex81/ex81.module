@@ -67,6 +67,9 @@ function ex81_theme($existing, $type, $theme, $path) {
     'my_template' => [
       'variables' => ['test_var' => NULL],
     ],
+    'youtube_link_formatter' => [
+      'variables' => ['url' => NULL],
+    ],
 
   ];
 }
@@ -79,9 +82,12 @@ function ex81_theme_suggestions_theme_template(array $variables) {
   return $suggestions;
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function ex81_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'user_login_form') {
-    $form['actions']['submit']['#value'] = t('Feedback');
+    //    $form['actions']['submit']['#value'] = t('Feedback');
     //    $form['actions']['submit']['#submit'] = \Drupal::service('form_submitted')
     //      ->redirectForm($form_state->setRedirect('<front>'));
     $form['#submit'][] = '_login_page_redirect_user_login_form_submit';
@@ -89,12 +95,23 @@ function ex81_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_stat
 }
 
 function _login_page_redirect_user_login_form_submit($form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  $current_user = \Drupal::currentUser()->getRoles();
-  if (in_array('content_editor', $current_user)) {
-    return $form_state->setRedirect('system.admin_content');
+  $current_user = \Drupal::currentUser();
+  $user_role = $current_user->getRoles();
+  $user_id = $current_user->id();
+  $nodeStorage = Drupal::entityTypeManager()->getStorage('node');
+  $nodeIds = $nodeStorage->getQuery()
+    ->condition('type', 'advertisement')
+    ->condition('status', 1)
+    ->condition('uid', $user_id)
+    ->execute();
+
+  if (in_array('ads_creator', $user_role) && count($nodeIds) > 0) {
+    return $form_state->setRedirect('ex81.user_ads');
+  }
+  if (in_array('ads_creator', $user_role) && count($nodeIds) == 0) {
+    return $form_state->setRedirect('ex81.create_ads');
   }
   return $form_state->setRedirect('<front>');
-
 }
 
 //function ex81_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
@@ -197,17 +214,19 @@ function ex81_preprocess_theme_template(&$variables) {
 //  $variables['#attached']['library'] = ['ex81/custom'];
 //
 //}
-
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ */
 function custom_theme_preprocess_html(&$variables) {
-  $config = \Drupal::config('ex81.switch_theme');
-  if ($config->get('theme') == 'light') {
-    $variables['attributes']['class'][] = 'theme-light';
-
-  }
-  else {
-    $variables['attributes']['class'][] = 'theme-dark';
-
-  }
+  //  $config = \Drupal::config('ex81.switch_theme');
+  //  if ($config->get('theme') == 'light') {
+  //    $variables['attributes']['class'][] = 'theme-light';
+  //
+  //  }
+  //  else {
+  //    $variables['attributes']['class'][] = 'theme-dark';
+  //
+  //  }
   $variables['#attached']['library'][] = 'ex81/custom';
 
 

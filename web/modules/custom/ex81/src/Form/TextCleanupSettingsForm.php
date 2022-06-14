@@ -30,7 +30,8 @@ class TextCleanupSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $options = [];
     /** @var \Drupal\ex81\TextCleanupPluginManager $manager */
-    $manager = \Drupal::service('plugin.manager.text_cleanup');
+    $manager = \Drupal::service('plugin.manager.text_cleanup')
+      ->getDefinitions();
     foreach ($manager->getDefinitions() as $pluginId => $pluginDefinition) {
       $options[$pluginId] = $pluginDefinition['label'];
     }

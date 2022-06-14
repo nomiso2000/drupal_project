@@ -12,9 +12,9 @@ use Drupal\Core\Field\FormatterBase;
  *   id = "test_list",
  *   label = @Translation("Test List"),
  *   field_types = {
- *     "list_integer",
- *     "list_float",
  *     "list_string",
+ *     "list_float",
+ *     "list_integer",
  *   }
  * )
  */
@@ -31,6 +31,7 @@ class TestListFormatter extends FormatterBase {
     //      '#markup' => 'Test values for firld' . $items->getFieldDefinition()
     //          ->getName(),
     //    ];
+    //    return ['#markup' => 'test'];
   }
 
 }
