@@ -116,5 +116,11 @@ ex81.drupal_latest:
     _controller: '\Drupal\ex81\Controllers\ExampleAjax::latest'
   requirements:
     _permission: 'access content'
-
+ex81.create_ads:
+  path: '/create-ads'
+  defaults:
+    _form: '\Drupal\ex81\Form\CreateAds'
+    _title: 'Create ads Form'
+  requirements:
+    _permission: 'access content'
 

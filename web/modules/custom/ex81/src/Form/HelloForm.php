@@ -5,8 +5,10 @@ namespace Drupal\ex81\Form;
 use Drupal\Component\Utility\Random;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 //FORM ELEMENTS Render/Element/  @annotationFormElement
@@ -153,7 +155,12 @@ class HelloForm extends FormBase {
       '#type' => 'vertical_tabs',
       '#default_tab' => 'edit-publication',
     ];
-
+    $form['images'] = [
+      '#type' => 'managed_file',
+      '#multiple' => TRUE,
+      '#title' => $this->t('Imagefile'),
+      '#upload_location' => 'private://images/',
+    ];
     $form['author'] = [
       '#type' => 'details',
       '#title' => $this->t('Author'),
@@ -216,7 +223,7 @@ class HelloForm extends FormBase {
       'title' => $this->t('Node creation'),
       'operations' => $operations,
     ]);
-    //    $storage = \Drupal::entityTypeManager()->getStorage('node');
+
     $createNode = Node::create([
       'type' => 'news',
       'title' => $form_state->getValue('title'),
@@ -226,6 +233,7 @@ class HelloForm extends FormBase {
     ]);
     $createNode->setUnpublished();
     $createNode->save();
+    //////////////////////////////////////////////
     //    class Node route_provider
     //    class NodeRouteProvider
     $form_state->setRedirect('entity.node.canonical', ['node' => $createNode->id()]);
@@ -255,5 +263,6 @@ class HelloForm extends FormBase {
     $node->save();
     \Drupal::messenger()->addStatus('Node added');
   }
+
 
 }

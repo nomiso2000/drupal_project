@@ -1,0 +1,127 @@
+uuid: f32f5a05-c789-46d8-a0e2-d12f3bcb5d41
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.advertisement.field_ad_image_carrusel
+    - field.field.node.advertisement.field_city
+    - field.field.node.advertisement.field_flat_description
+    - field.field.node.advertisement.field_month_price
+    - field.field.node.advertisement.field_rooms
+    - node.type.advertisement
+  module:
+    - ds
+    - slick_paragraphs
+    - taxonomy
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_fluid
+      library: ds/ds_2col_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          left: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      left:
+        - field_ad_image_carrusel
+      right:
+        - field_month_price
+        - field_city
+        - field_rooms
+        - field_flat_description
+        - node_post_date
+        - node_link
+    fields:
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 5
+        label: hidden
+        formatter: ds_post_date_long
+      node_link:
+        plugin_id: node_link
+        weight: 6
+        label: hidden
+        formatter: default
+        settings:
+          'link text': 'Перейти на сторінку об’яви'
+          'link class': ''
+          wrapper: ''
+          class: ''
+id: node.advertisement.teaser
+targetEntityType: node
+bundle: advertisement
+mode: teaser
+content:
+  field_ad_image_carrusel:
+    type: slick_paragraphs_vanilla
+    label: above
+    settings:
+      optionset: default
+      view_mode: default
+      cache: 0
+      skin: classic
+      lazy: ''
+      style: ''
+      overridables:
+        arrows: arrows
+        dots: dots
+        infinite: infinite
+        autoplay: '0'
+        draggable: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      override: true
+      skin_arrows: ''
+      skin_dots: ''
+      use_theme_field: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_city:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: right
+  field_flat_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: right
+  field_month_price:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: right
+  field_rooms:
+    type: entity_reference_rss_category
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: right
+hidden:
+  links: true

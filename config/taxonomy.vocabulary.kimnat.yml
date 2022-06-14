@@ -1,0 +1,8 @@
+uuid: 9261785f-3c15-4679-8119-dd9a31219e37
+langcode: en
+status: true
+dependencies: {  }
+name: Rooms
+vid: kimnat
+description: 'Кількість кімнат'
+weight: 0
