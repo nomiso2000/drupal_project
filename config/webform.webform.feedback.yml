@@ -13,13 +13,22 @@ title: 'Замовити зворотній відгук'
 description: ''
 category: ''
 elements: |-
-  speaker_name:
+  phone_number:
+    '#type': tel
+    '#title': 'Phone number'
+    '#description': 'Enter your phone number for feedback.'
+    '#placeholder': '+380'
+    '#required': true
+    '#required_error': 'Please enter your phone number'
+  your_name:
     '#type': webform_name
-    '#title': 'Speaker name'
+    '#title': 'Your name'
+    '#title_display': ''
+    '#wrapper_type': container
     '#title__access': false
-    '#first__title': 'Ваше ім''я'
-    '#first__placeholder': 'Введіть ім''я'
-    '#first__required': true
+    '#first__title': Name
+    '#first__placeholder': 'Enter name'
+    '#first__title_display': invisible
     '#middle__access': false
     '#last__access': false
     '#suffix__access': false
@@ -27,6 +36,15 @@ elements: |-
   your_email:
     '#type': email
     '#title': 'Your email'
+    '#title_display': invisible
+    '#placeholder': 'Enter email'
+  author_id:
+    '#type': textfield
+    '#title': 'Author id'
+    '#placeholder': '[webform_submission:node:author:uid]'
+    '#disabled': true
+    '#input_hide': true
+    '#default_value': '[webform_submission:node:author:uid]'
 css: ''
 javascript: ''
 settings:
@@ -129,10 +147,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
+  confirmation_type: inline
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: 'You have successfully submitted the form. You will be called back soon!'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''

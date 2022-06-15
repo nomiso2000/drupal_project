@@ -127,3 +127,10 @@ ex81.user_ads:
   path: '/userads'
   requirements:
     _permission: 'access content'
+ex81.listofwebform:
+  path: '/listofweb'
+  defaults:
+    _form: '\Drupal\ex81\Form\ListOfSubWeb'
+    _title: 'Сторінка відгуків'
+  requirements:
+    _permission: 'access content'
