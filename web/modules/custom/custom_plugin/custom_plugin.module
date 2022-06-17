@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_entity_presave().
+ */
+function custom_plugin_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  if (!$entity instanceof \Drupal\node\NodeInterface ||
+    !$entity->hasField('title') ||
+    $entity->get('title')->isEmpty()
+  ) {
+    return;
+  }
+  $value = $entity->get('title')->value;
+
+  /**
+   * Для того, що б викликати нашу допоміжну функцію (далі сервіс)
+   * Ми свторили файл модуль.service.yml в якому створили сервіс з
+   * унікальним id
+   * в якому вказали який клас ми хочему викликати, і !!!які залежності там будуть!!!
+   */
+  /** @var \Drupal\custom_plugin\Services\AddLettersServices $title */
+  $title = \Drupal::service('add_letters_service');
+  $changed = $title->title($value);
+  $entity->set('title', $changed);
+
+}

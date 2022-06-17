@@ -794,6 +794,6 @@ $databases['default']['default'] = [
 ];
 $settings['config_sync_directory'] = '../config';
 $settings['skip_permissions_hardening'] = TRUE;
-$config['system.logging']['error_level'] = 'verbose';
+//$config['system.logging']['error_level'] = 'verbose';
 $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;

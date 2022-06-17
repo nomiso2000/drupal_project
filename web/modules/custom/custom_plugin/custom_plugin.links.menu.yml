@@ -1,0 +1,5 @@
+custom_plugin.add_letters_settings:
+  title: Add letters settings
+  parent: system.admin_config_system
+  route_name: custom_plugin.add_letters_settings
+  weight: 10

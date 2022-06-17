@@ -1,0 +1,5 @@
+name: custom_plugin
+description: A module with demonstration of plugin work
+type: module
+package: Custom
+core_version_requirement: ^9 || ^10

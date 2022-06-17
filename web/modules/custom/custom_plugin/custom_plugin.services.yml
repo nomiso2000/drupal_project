@@ -1,0 +1,8 @@
+services:
+  plugin.manager.custom_plugin:
+    class: Drupal\custom_plugin\CustomPluginPluginManager
+    parent: default_plugin_manager
+
+  add_letters_service:
+    class: \Drupal\custom_plugin\Services\AddLettersServices
+    arguments: [ '@plugin.manager.custom_plugin', '@config.factory' ]

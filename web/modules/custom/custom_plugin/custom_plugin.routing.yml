@@ -1,0 +1,7 @@
+custom_plugin.add_letters_settings:
+  path: '/admin/config/system/add-letters-settings'
+  defaults:
+    _title: 'Add letters settings'
+    _form: 'Drupal\custom_plugin\Form\AddLettersSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
