@@ -2,14 +2,13 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
 uuid: 05966975-15e9-408f-af82-c9cea7a9e0c0
-name: 'Оренда квартир'
+name: 'Drush Site-Install2'
 mail: admin@example.com
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /advertisements
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
-mail_notification: ''

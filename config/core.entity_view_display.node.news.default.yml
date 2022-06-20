@@ -5,20 +5,16 @@ dependencies:
   config:
     - core.entity_view_display.comment.comment.default
     - field.field.node.news.body
-    - field.field.node.news.field_archive
     - field.field.node.news.field_category
     - field.field.node.news.field_comments
-    - field.field.node.news.field_link_test
     - field.field.node.news.field_private
-    - field.field.node.news.field_published
     - field.field.node.news.field_tags_news
     - field.field.node.news.field_type
     - node.type.news
   module:
     - comment
-    - datetime
-    - ex81
     - image
+    - options
     - text
     - user
 id: node.news.default
@@ -32,16 +28,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
-    region: content
-  field_archive:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 107
     region: content
   field_category:
     type: entity_reference_label
@@ -60,13 +46,6 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
-  field_link_test:
-    type: youtube_link
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 109
-    region: content
   field_private:
     type: image
     label: above
@@ -75,15 +54,6 @@ content:
       image_style: ''
     third_party_settings: {  }
     weight: 104
-    region: content
-  field_published:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 108
     region: content
   field_tags_news:
     type: entity_reference_label
@@ -94,7 +64,7 @@ content:
     weight: 106
     region: content
   field_type:
-    type: test_list
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }

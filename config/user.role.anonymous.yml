@@ -9,7 +9,6 @@ dependencies:
     - comment
     - contact
     - filter
-    - media
     - search
     - system
 _core:
@@ -26,4 +25,3 @@ permissions:
   - 'search content'
   - 'use text format anonymous_editor'
   - 'use text format restricted_html'
-  - 'view media'
