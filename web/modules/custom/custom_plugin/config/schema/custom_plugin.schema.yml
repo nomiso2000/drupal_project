@@ -6,3 +6,18 @@ custom_plugin.settings:
     example:
       type: string
       label: 'Example'
+
+custom_plugin.entity_config.*:
+  type: config_entity
+  label: entity_config
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: string

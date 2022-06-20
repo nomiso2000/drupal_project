@@ -5,3 +5,35 @@ custom_plugin.add_letters_settings:
     _form: 'Drupal\custom_plugin\Form\AddLettersSettingsForm'
   requirements:
     _permission: 'administer site configuration'
+
+entity.entity_config.collection:
+  path: '/admin/structure/entity-config'
+  defaults:
+    _entity_list: 'entity_config'
+    _title: 'entity_config configuration'
+  requirements:
+    _permission: 'administer entity_config'
+
+entity.entity_config.add_form:
+  path: '/admin/structure/entity_config/add'
+  defaults:
+    _entity_form: 'entity_config.add'
+    _title: 'Add an entity_config'
+  requirements:
+    _permission: 'administer entity_config'
+
+entity.entity_config.edit_form:
+  path: '/admin/structure/entity-config/{entity_config}'
+  defaults:
+    _entity_form: 'entity_config.edit'
+    _title: 'Edit an entity_config'
+  requirements:
+    _permission: 'administer entity_config'
+
+entity.entity_config.delete_form:
+  path: '/admin/structure/entity-config/{entity_config}/delete'
+  defaults:
+    _entity_form: 'entity_config.delete'
+    _title: 'Delete an entity_config'
+  requirements:
+    _permission: 'administer entity_config'
