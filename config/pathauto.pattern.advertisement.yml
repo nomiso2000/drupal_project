@@ -1,0 +1,22 @@
+uuid: 5c794642-7dda-4cba-9e15-32a3cd6a4e11
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: advertisement
+label: Advertisement
+type: 'canonical_entities:node'
+pattern: '/ads/[node:nid]'
+selection_criteria:
+  188d9c71-488b-401c-a207-579135653d44:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 188d9c71-488b-401c-a207-579135653d44
+    context_mapping:
+      node: node
+    bundles:
+      advertisement: advertisement
+selection_logic: and
+weight: -5
+relationships: {  }

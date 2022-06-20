@@ -2,19 +2,11 @@
 
 namespace Drupal\custom_plugin;
 
+use Drupal\Core\Config\Entity\ConfigEntityInterface;
+
 /**
- * Interface for custom_plugin plugins.
+ * Provides an interface defining a custom plugin entity type.
  */
-interface CustomPluginInterface {
-
-  /**
-   * Returns the translated plugin label.
-   *
-   * @return string
-   *   The translated title.
-   */
-  public function label();
-
-  public function title($value);
+interface CustomPluginInterface extends ConfigEntityInterface {
 
 }

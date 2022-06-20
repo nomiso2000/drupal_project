@@ -1,0 +1,111 @@
+uuid: b7a53f8f-e74b-44eb-967a-d40cecbc505d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.advertisement.field_ad_image_carrusel
+    - field.field.node.advertisement.field_city
+    - field.field.node.advertisement.field_flat_description
+    - field.field.node.advertisement.field_month_price
+    - field.field.node.advertisement.field_rooms
+    - node.type.advertisement
+  module:
+    - ds
+    - slick_paragraphs
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_ad_image_carrusel
+        - field_month_price
+        - field_city
+        - field_rooms
+        - field_flat_description
+        - links
+id: node.advertisement.default
+targetEntityType: node
+bundle: advertisement
+mode: default
+content:
+  field_ad_image_carrusel:
+    type: slick_paragraphs_vanilla
+    label: hidden
+    settings:
+      optionset: default
+      view_mode: default
+      cache: 0
+      skin: classic
+      lazy: ''
+      style: ''
+      overridables:
+        arrows: arrows
+        dots: dots
+        infinite: infinite
+        autoplay: '0'
+        draggable: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      override: true
+      skin_arrows: ''
+      skin_dots: ''
+      use_theme_field: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: ds_content
+  field_city:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+  field_flat_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: ds_content
+  field_month_price:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: ds_content
+  field_rooms:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: ds_content
+hidden: {  }
