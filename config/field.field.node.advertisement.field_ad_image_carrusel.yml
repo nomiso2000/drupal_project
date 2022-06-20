@@ -1,0 +1,31 @@
+uuid: 604380bc-ead4-40b5-b96a-3785bd95a781
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ad_image_carrusel
+    - node.type.advertisement
+    - paragraphs.paragraphs_type.slider
+  module:
+    - entity_reference_revisions
+id: node.advertisement.field_ad_image_carrusel
+field_name: field_ad_image_carrusel
+entity_type: node
+bundle: advertisement
+label: ad_image_carrusel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      slider: slider
+    negate: 0
+    target_bundles_drag_drop:
+      slider:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

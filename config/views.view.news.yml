@@ -237,6 +237,7 @@ display:
       menu:
         type: normal
         title: News
+        enabled: false
         menu_name: main
         parent: ''
     cache_metadata:

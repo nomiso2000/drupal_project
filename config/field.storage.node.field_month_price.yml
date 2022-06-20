@@ -1,0 +1,20 @@
+uuid: 2a7c1d1b-5ff8-42cd-9f4b-ccb3b8b07719
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_month_price
+field_name: field_month_price
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

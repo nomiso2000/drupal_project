@@ -1,0 +1,14 @@
+uuid: a2cf1893-008f-4376-a343-e9c26bc9e5af
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ads_creator
+  module:
+    - user
+id: user_add_role_action.ads_creator
+label: 'Add the Ads creator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ads_creator
