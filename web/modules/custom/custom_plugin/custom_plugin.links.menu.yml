@@ -3,3 +3,9 @@ custom_plugin.add_letters_settings:
   parent: system.admin_config_system
   route_name: custom_plugin.add_letters_settings
   weight: 10
+
+entity.custom_plugin.overview:
+  title: Custom plugins
+  parent: system.admin_structure
+  description: 'List of custom plugins to extend site functionality.'
+  route_name: entity.custom_plugin.collection

@@ -1,0 +1,5 @@
+entity.custom_plugin.add_form:
+  route_name: 'entity.custom_plugin.add_form'
+  title: 'Add custom plugin'
+  appears_on:
+    - entity.custom_plugin.collection

@@ -3,3 +3,4 @@ description: A module with demonstration of plugin work
 type: module
 package: Custom
 core_version_requirement: ^9 || ^10
+configure: entity.custom_plugin.collection

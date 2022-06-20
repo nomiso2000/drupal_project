@@ -5,3 +5,35 @@ custom_plugin.add_letters_settings:
     _form: 'Drupal\custom_plugin\Form\AddLettersSettingsForm'
   requirements:
     _permission: 'administer site configuration'
+
+entity.custom_plugin.collection:
+  path: '/admin/structure/custom-plugin'
+  defaults:
+    _entity_list: 'custom_plugin'
+    _title: 'Custom plugin configuration'
+  requirements:
+    _permission: 'administer custom_plugin'
+
+entity.custom_plugin.add_form:
+  path: '/admin/structure/custom_plugin/add'
+  defaults:
+    _entity_form: 'custom_plugin.add'
+    _title: 'Add a custom plugin'
+  requirements:
+    _permission: 'administer custom_plugin'
+
+entity.custom_plugin.edit_form:
+  path: '/admin/structure/custom-plugin/{custom_plugin}'
+  defaults:
+    _entity_form: 'custom_plugin.edit'
+    _title: 'Edit a custom plugin'
+  requirements:
+    _permission: 'administer custom_plugin'
+
+entity.custom_plugin.delete_form:
+  path: '/admin/structure/custom-plugin/{custom_plugin}/delete'
+  defaults:
+    _entity_form: 'custom_plugin.delete'
+    _title: 'Delete a custom plugin'
+  requirements:
+    _permission: 'administer custom_plugin'
