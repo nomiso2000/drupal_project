@@ -1,6 +1,6 @@
 uuid: aaf30652-6297-4887-98d3-087a463495aa
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -237,7 +237,6 @@ display:
       menu:
         type: normal
         title: News
-        enabled: false
         menu_name: main
         parent: ''
     cache_metadata:

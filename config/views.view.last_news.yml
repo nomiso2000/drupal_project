@@ -1,6 +1,6 @@
 uuid: 2ca97c67-743b-4927-a6cb-cc213a51b56e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - node.type.news

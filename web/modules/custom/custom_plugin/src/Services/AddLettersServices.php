@@ -28,5 +28,23 @@ class AddLettersServices {
 
     return $value;
   }
+  public function entityTitle(\Drupal\Core\Entity\EntityInterface $entity)
+  {
+    $storage = \Drupal::entityTypeManager()->getStorage('entity_config');
+    $configs = $storage->loadByProperties(['type'=> $entity->bundle()]);
+    $config = reset($configs); //  reset бере перший елемент масиву
+    if(empty($config )) {
+      return $entity->get('title')->value;
+    }
+
+    $plugins = $config->getPlugins();
+    $pluginDefinitions = $this->manager->getDefinitions();
+
+    foreach (array_filter($plugins) as $pluginId) {
+      $plugin = $this->manager->createInstance($pluginId, $pluginDefinitions[$pluginId]);
+      $value = $plugin->title($entity->get('title')->value);
+    }
+    return $value;
+  }
 
 }

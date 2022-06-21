@@ -24,7 +24,6 @@ class AddA extends \Drupal\custom_plugin\CustomPluginPluginBase {
     foreach ($words as &$word) {
       $word .= 'A';
     }
-
     return implode(' ', $words);
   }
 

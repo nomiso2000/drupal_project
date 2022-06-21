@@ -17,7 +17,14 @@ custom_plugin.entity_config.*:
     label:
       type: label
       label: Label
+    type:
+      type: label
+      label: Label
     uuid:
       type: string
-    description:
-      type: string
+    plugins:
+      type: sequence
+      label: 'plugins'
+      sequence:
+        type: string
+        label: 'plugins'

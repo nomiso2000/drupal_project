@@ -37,17 +37,23 @@ class EntityConfigForm extends EntityForm {
       '#disabled' => !$this->entity->isNew(),
     ];
 
-    $form['status'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Enabled'),
-      '#default_value' => $this->entity->status(),
+    $form['type'] = [
+      '#type' =>'select',
+      '#title' => $this->t('Choose type of node'),
+      '#options' => node_type_get_names(),
     ];
-
-    $form['description'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Description'),
-      '#default_value' => $this->entity->get('description'),
-      '#description' => $this->t('Description of the entity_config.'),
+    $options = [];
+    /** @var \Drupal\custom_plugin\CustomPluginPluginManager $manager */
+    $manager = \Drupal::service('plugin.manager.custom_plugin');
+    foreach ($manager->getDefinitions() as $pluginId => $pluginDefinition) {
+      $options[$pluginId] = $pluginDefinition['label'];
+    }
+    $isPluginChoosed = $this->entity->get('plugins');
+    $form['plugins'] = [
+      '#type' => 'checkboxes',
+      '#title' => $this->t('Plugins'),
+      '#default_value' => isset($isPluginChoosed) ? $isPluginChoosed : [],
+      '#options' => $options,
     ];
 
     return $form;

@@ -42,7 +42,8 @@ use Drupal\custom_plugin\EntityConfigInterface;
  *   config_export = {
  *     "id",
  *     "label",
- *     "description"
+ *     "plugins",
+ * "type"
  *   }
  * )
  */
@@ -63,17 +64,14 @@ class EntityConfig extends ConfigEntityBase implements EntityConfigInterface {
   protected $label;
 
   /**
-   * The entity_config status.
-   *
-   * @var bool
-   */
-  protected $status;
-
-  /**
-   * The entity_config description.
+   * The entity_config $type.
    *
    * @var string
    */
-  protected $description;
+  protected $type;
+  protected $plugins;
+  public function getPlugins() {
+    return $this->plugins;
+  }
 
 }
