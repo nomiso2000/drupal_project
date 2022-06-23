@@ -10,7 +10,7 @@ function custom_plugin_entity_presave(\Drupal\Core\Entity\EntityInterface $entit
   ) {
     return;
   }
-//  $value = $entity->get('title')->value;
+  //  $value = $entity->get('title')->value;
 
   /**
    * Для того, що б викликати нашу допоміжну функцію (далі сервіс)
