@@ -1,0 +1,41 @@
+@import './additional-styles/routes-styles';
+
+
+.main-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header {
+        height: 80px;
+        width: 100%;
+        background-color: aquamarine;
+    }
+
+    .main {
+        height: 400px;
+        width: 100%;
+        display: flex;
+        background-color: bisque;
+
+        .sidebar {
+            width: 33%;
+            height: 100%;
+            background-color: blue;
+        }
+        .content {
+            width: 67%;
+            height: 100%;
+            background-color: rgb(187, 40, 187);
+        }
+    }
+
+    .footer {
+        margin: 0;
+        height: 80px;
+        width: 100%;
+        background-color: aquamarine;
+    }
+}

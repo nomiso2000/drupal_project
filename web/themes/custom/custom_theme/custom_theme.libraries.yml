@@ -22,12 +22,30 @@
 #      css/layouts/layout.css: { }
 #    theme:
 #      css/theme/print.css: { media: print }
-global-libraries:
+# global-libraries:
+#   js:
+#     dist/assets/global.js: { minified: true }
+#   dependencies:
+#     - custom_theme/react
+# react:
+#   js:
+#     dist/assets/react.js: { minified: true }
+#     dist/assets/react-dom.js: { minified: true }
+
+global-styling:
+  version: 1.0
+  css:
+    base:
+      src/css/icon-fonts.css: {}
+      src/css/style.css: {}
+
+# Global Javascripts. These will be loaded on every pages.
+global-scripts:
+  version: 1.0
   js:
-    dist/assets/global.js: { minified: true }
+    src/js/index.js: {}
+    src/js/burger-menu.js: {}
   dependencies:
-    - custom_theme/react
-react:
-  js:
-    dist/assets/react.js: { minified: true }
-    dist/assets/react-dom.js: { minified: true }
+    - core/drupal
+    - core/jquery
+    - core/once
